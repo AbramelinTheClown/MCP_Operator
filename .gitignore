@@ -25,6 +25,9 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+mcpvenv/
+ttsvenv/
+fastvenv/
 
 # Editor
 .vscode/
@@ -34,10 +37,18 @@ venv.bak/
 *.njsproj
 *.sln
 *.sw?
-
+*uv.lock
 # Build artifacts
 dist/
 build/
 *.egg-info/
 *.egg
 .coverage
+
+#models
+models/
+Orpheus-FastAPI/
+outputs/
+
+#folders/
+cache/

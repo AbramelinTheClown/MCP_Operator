@@ -1,0 +1,27 @@
+vllm==0.7.3
+# requirements.txt for the main mcp_operator project
+
+# Core MCP SDK
+modelcontextprotocol
+
+# Astrology Tool Dependencies
+skyfield
+swisseph # This is typically installed as 'swisseph' via pip, though the import is 'swisseph'
+
+# Image Search Tool Dependencies
+requests
+
+# Orpheus TTS Tool Dependencies
+# The orpheus-speech library includes its own dependencies like torch and vllm.
+orpheus-speech
+
+# You might need to explicitly add torch if orpheus-speech doesn't pull a compatible version
+# or if you need a specific version for other reasons.
+# torch # Add if needed, specify version if conflicts arise (e.g., torch==2.2.0)
+
+# As per Orpheus docs, pinning vllm might be necessary due to bugs:
+# vllm==0.7.3 # Uncomment if you encounter issues with the latest vllm from orpheus-speech
+
+# Add any other core dependencies your mcp_operator project needs
+# (e.g., logging libraries, configuration parsing libraries, etc.)
+# example_core_lib

@@ -1,0 +1,6 @@
+FROM python:3.10-slim
+WORKDIR /app
+COPY requirements.example.txt .
+RUN pip install --no-cache-dir -r requirements.example.txt
+COPY src/mcp_tools/example/ /app/mcp_tools/example/
+CMD ["python", "-m", "mcp_tools.example.server"]
