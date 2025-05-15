@@ -1,0 +1,293 @@
+{
+    "time_utc": "2025-05-13T17:20:26.518524Z",
+    "zodiac_sign": "Leo",
+    "focus_planet": "Sun",
+    "positions": {
+        "Sun": {
+            "x": 61.03225197510521,
+            "y": 73.89071424794432,
+            "z": 32.02966417498584,
+            "zodiac": "Taurus",
+            "retrograde": false
+        },
+        "Moon": {
+            "x": -0.1178431093616372,
+            "y": -0.21303973175255125,
+            "z": -0.11657583871071964,
+            "zodiac": "Sagittarius",
+            "retrograde": false
+        },
+        "Mercury": {
+            "x": 96.71640586641695,
+            "y": 64.35070335322547,
+            "z": 23.234977862448535,
+            "zodiac": "Taurus",
+            "retrograde": false
+        },
+        "Venus": {
+            "x": 54.7219898208463,
+            "y": 7.723565359996353,
+            "z": 2.655566172415363,
+            "zodiac": "Aries",
+            "retrograde": false
+        },
+        "Mars": {
+            "x": -101.44343253687667,
+            "y": 104.03880541849726,
+            "z": 50.240369122602246,
+            "zodiac": "Leo",
+            "retrograde": false
+        },
+        "Jupiter": {
+            "x": 66.01330772016703,
+            "y": 545.229048499093,
+            "z": 233.93678272752862,
+            "zodiac": "Gemini",
+            "retrograde": false
+        },
+        "Saturn": {
+            "x": 1013.7659285940009,
+            "y": -6.590277646711732,
+            "z": -42.235989744890546,
+            "zodiac": "Pisces",
+            "retrograde": false
+        },
+        "Uranus": {
+            "x": 1127.5998592408034,
+            "y": 1578.0710281805345,
+            "z": 675.720587466048,
+            "zodiac": "Taurus",
+            "retrograde": false
+        },
+        "Neptune": {
+            "x": 3049.2537146427485,
+            "y": 81.35143053931212,
+            "z": -39.30649180756541,
+            "zodiac": "Aries",
+            "retrograde": false
+        },
+        "Pluto": {
+            "x": 1920.3834712517576,
+            "y": -2581.0376150729426,
+            "z": -1356.5251137986252,
+            "zodiac": "Aquarius",
+            "retrograde": true
+        }
+    },
+    "aspects": [
+        {
+            "planet1": "Sun",
+            "planet2": "Jupiter",
+            "aspect": "semisextile",
+            "angle": 30.81,
+            "sign1": "Taurus",
+            "sign2": "Gemini"
+        },
+        {
+            "planet1": "Sun",
+            "planet2": "Saturn",
+            "aspect": "sextile",
+            "angle": 54.13,
+            "sign1": "Taurus",
+            "sign2": "Pisces"
+        },
+        {
+            "planet1": "Sun",
+            "planet2": "Uranus",
+            "aspect": "conjunction",
+            "angle": 3.86,
+            "sign1": "Taurus",
+            "sign2": "Taurus"
+        },
+        {
+            "planet1": "Moon",
+            "planet2": "Mercury",
+            "aspect": "quincunx",
+            "angle": 151.2,
+            "sign1": "Sagittarius",
+            "sign2": "Taurus"
+        },
+        {
+            "planet1": "Moon",
+            "planet2": "Venus",
+            "aspect": "trine",
+            "angle": 124.44,
+            "sign1": "Sagittarius",
+            "sign2": "Aries"
+        },
+        {
+            "planet1": "Moon",
+            "planet2": "Mars",
+            "aspect": "trine",
+            "angle": 112.71,
+            "sign1": "Sagittarius",
+            "sign2": "Leo"
+        },
+        {
+            "planet1": "Moon",
+            "planet2": "Saturn",
+            "aspect": "trine",
+            "angle": 114.69,
+            "sign1": "Sagittarius",
+            "sign2": "Pisces"
+        },
+        {
+            "planet1": "Moon",
+            "planet2": "Uranus",
+            "aspect": "opposition",
+            "angle": 172.68,
+            "sign1": "Sagittarius",
+            "sign2": "Taurus"
+        },
+        {
+            "planet1": "Moon",
+            "planet2": "Neptune",
+            "aspect": "trine",
+            "angle": 117.09,
+            "sign1": "Sagittarius",
+            "sign2": "Aries"
+        },
+        {
+            "planet1": "Moon",
+            "planet2": "Pluto",
+            "aspect": "sextile",
+            "angle": 59.42,
+            "sign1": "Sagittarius",
+            "sign2": "Aquarius"
+        },
+        {
+            "planet1": "Mercury",
+            "planet2": "Mars",
+            "aspect": "square",
+            "angle": 96.09,
+            "sign1": "Taurus",
+            "sign2": "Leo"
+        },
+        {
+            "planet1": "Mercury",
+            "planet2": "Pluto",
+            "aspect": "square",
+            "angle": 91.78,
+            "sign1": "Taurus",
+            "sign2": "Aquarius"
+        },
+        {
+            "planet1": "Venus",
+            "planet2": "Mars",
+            "aspect": "trine",
+            "angle": 122.84,
+            "sign1": "Aries",
+            "sign2": "Leo"
+        },
+        {
+            "planet1": "Venus",
+            "planet2": "Saturn",
+            "aspect": "conjunction",
+            "angle": 9.75,
+            "sign1": "Aries",
+            "sign2": "Pisces"
+        },
+        {
+            "planet1": "Venus",
+            "planet2": "Neptune",
+            "aspect": "conjunction",
+            "angle": 7.35,
+            "sign1": "Aries",
+            "sign2": "Aries"
+        },
+        {
+            "planet1": "Venus",
+            "planet2": "Pluto",
+            "aspect": "sextile",
+            "angle": 65.02,
+            "sign1": "Aries",
+            "sign2": "Aquarius"
+        },
+        {
+            "planet1": "Mars",
+            "planet2": "Pluto",
+            "aspect": "opposition",
+            "angle": 172.14,
+            "sign1": "Leo",
+            "sign2": "Aquarius"
+        },
+        {
+            "planet1": "Jupiter",
+            "planet2": "Saturn",
+            "aspect": "square",
+            "angle": 84.94,
+            "sign1": "Gemini",
+            "sign2": "Pisces"
+        },
+        {
+            "planet1": "Jupiter",
+            "planet2": "Neptune",
+            "aspect": "square",
+            "angle": 82.54,
+            "sign1": "Gemini",
+            "sign2": "Aries"
+        },
+        {
+            "planet1": "Saturn",
+            "planet2": "Uranus",
+            "aspect": "sextile",
+            "angle": 57.99,
+            "sign1": "Pisces",
+            "sign2": "Taurus"
+        },
+        {
+            "planet1": "Saturn",
+            "planet2": "Neptune",
+            "aspect": "conjunction",
+            "angle": 2.4,
+            "sign1": "Pisces",
+            "sign2": "Aries"
+        },
+        {
+            "planet1": "Saturn",
+            "planet2": "Pluto",
+            "aspect": "sextile",
+            "angle": 55.27,
+            "sign1": "Pisces",
+            "sign2": "Aquarius"
+        },
+        {
+            "planet1": "Uranus",
+            "planet2": "Neptune",
+            "aspect": "sextile",
+            "angle": 55.59,
+            "sign1": "Taurus",
+            "sign2": "Aries"
+        },
+        {
+            "planet1": "Uranus",
+            "planet2": "Pluto",
+            "aspect": "trine",
+            "angle": 113.26,
+            "sign1": "Taurus",
+            "sign2": "Aquarius"
+        },
+        {
+            "planet1": "Neptune",
+            "planet2": "Pluto",
+            "aspect": "sextile",
+            "angle": 57.67,
+            "sign1": "Aries",
+            "sign2": "Aquarius"
+        }
+    ],
+    "zodiac_rulers": {
+        "Aries": "Mars",
+        "Taurus": "Venus",
+        "Gemini": "Mercury",
+        "Cancer": "Moon",
+        "Leo": "Sun",
+        "Virgo": "Mercury",
+        "Libra": "Venus",
+        "Scorpio": "Mars",
+        "Sagittarius": "Jupiter",
+        "Capricorn": "Saturn",
+        "Aquarius": "Uranus",
+        "Pisces": "Neptune"
+    }
+}

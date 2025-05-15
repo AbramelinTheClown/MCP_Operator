@@ -1,0 +1,464 @@
+2025-05-13 13:20:25,787 - INFO - [main.<module>:72] - Initializing Gradio client for: NihalGazi/FLUX-Pro-Unlimited
+2025-05-13 13:20:26,302 - INFO - [_client._send_single_request:1025] - HTTP Request: GET https://nihalgazi-flux-pro-unlimited.hf.space/config "HTTP/1.1 200 OK"
+2025-05-13 13:20:26,496 - INFO - [_client._send_single_request:1025] - HTTP Request: GET https://nihalgazi-flux-pro-unlimited.hf.space/gradio_api/info?serialize=False "HTTP/1.1 200 OK"
+2025-05-13 13:20:26,509 - INFO - [main.<module>:75] - Gradio client initialized successfully.
+2025-05-13 13:20:26,519 - INFO - [main.main_async:595] - --- Starting Astrology Horoscope Generation Script --- Run ID: 2025-05-13_172026 ---
+2025-05-13 13:20:26,520 - INFO - [main.main_async:596] - Base output for this run: D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\run_2025-05-13_172026
+2025-05-13 13:20:26,521 - INFO - [main.main_async:602] - Loaded personality profile: D:\AI\mcp_operator\projects\coffee_by_astrology_v1\prompt_style\lumina_alone.txt
+2025-05-13 13:20:26,532 - INFO - [main.main_async:613] - Skyfield setup complete. Ephemeris: de421.bsp loaded from D:\AI\mcp_operator\projects\coffee_by_astrology_v1\skyfield_data
+2025-05-13 13:20:26,532 - INFO - [main.main_async:621] - Calculating planetary data for 2025-05-13T17:20:26.518524+00:00...
+2025-05-13 13:20:26,559 - INFO - [main.get_planet_positions:178] - Calculated planetary positions, signs, retrograde status, and aspects.
+2025-05-13 13:20:26,560 - INFO - [main.main_async:639] - --- Processing Zodiac Sign: Aries ---
+2025-05-13 13:20:26,561 - INFO - [main.save_generated_content:311] - Saved Planetary JSON for Aries to D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\run_2025-05-13_172026\Aries\planetary_data_20250513_1720.json
+2025-05-13 13:20:26,562 - INFO - [main.generate_horoscope_with_ollama:254] - Attempting Ollama generation. Prompt starts: 'You are an expert astrologer with a unique voice. Your task is to generate a daily horoscope for Aries. Today's Date: May 13, 2025 Astrological Data S...'
+2025-05-13 13:20:26,655 - INFO - [_client._send_single_request:1025] - HTTP Request: GET https://nihalgazi-flux-pro-unlimited.hf.space/gradio_api/heartbeat/09247b34-3fa6-4751-bbea-e703d0e3843d "HTTP/1.1 200 OK"
+2025-05-13 13:20:47,785 - INFO - [_client._send_single_request:1025] - HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2025-05-13 13:20:47,785 - INFO - [main.generate_horoscope_with_ollama:261] - Ollama API call completed.
+2025-05-13 13:20:47,786 - INFO - [main.save_generated_content:311] - Saved Horoscope Text for Aries to D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\run_2025-05-13_172026\Aries\horoscope_script_20250513_1720.txt
+2025-05-13 13:20:47,787 - INFO - [main.main_async:679] - Horoscope script for Aries generated and saved.
+2025-05-13 13:20:47,787 - INFO - [main.main_async:682] - Creating TTS task for Aries
+2025-05-13 13:20:47,787 - INFO - [main.main_async:694] - Creating TikTok image task for Aries via Google US Server
+2025-05-13 13:20:47,787 - INFO - [main.main_async:705] - Creating YouTube image task for Aries via Azure Lite Supercomputer Server
+2025-05-13 13:20:47,787 - INFO - [main.main_async:639] - --- Processing Zodiac Sign: Taurus ---
+2025-05-13 13:20:47,787 - INFO - [main.generate_tts_async:331] - Async TTS request for Aries...
+2025-05-13 13:20:47,839 - INFO - [main.save_generated_content:311] - Saved Planetary JSON for Taurus to D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\run_2025-05-13_172026\Taurus\planetary_data_20250513_1720.json
+2025-05-13 13:20:47,840 - INFO - [main.generate_horoscope_with_ollama:254] - Attempting Ollama generation. Prompt starts: 'You are an expert astrologer with a unique voice. Your task is to generate a daily horoscope for Taurus. Today's Date: May 13, 2025 Astrological Data ...'
+2025-05-13 13:20:47,924 - INFO - [_client._send_single_request:1025] - HTTP Request: POST https://nihalgazi-flux-pro-unlimited.hf.space/gradio_api/queue/join "HTTP/1.1 200 OK"
+2025-05-13 13:20:47,929 - INFO - [_client._send_single_request:1025] - HTTP Request: POST https://nihalgazi-flux-pro-unlimited.hf.space/gradio_api/queue/join "HTTP/1.1 200 OK"
+2025-05-13 13:20:48,026 - INFO - [_client._send_single_request:1025] - HTTP Request: GET https://nihalgazi-flux-pro-unlimited.hf.space/gradio_api/queue/data?session_hash=09247b34-3fa6-4751-bbea-e703d0e3843d "HTTP/1.1 200 OK"
+2025-05-13 13:21:01,736 - INFO - [_client._send_single_request:1025] - HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2025-05-13 13:21:01,736 - INFO - [main.generate_horoscope_with_ollama:261] - Ollama API call completed.
+2025-05-13 13:21:01,738 - INFO - [main.save_generated_content:311] - Saved Horoscope Text for Taurus to D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\run_2025-05-13_172026\Taurus\horoscope_script_20250513_1720.txt
+2025-05-13 13:21:01,738 - INFO - [main.main_async:679] - Horoscope script for Taurus generated and saved.
+2025-05-13 13:21:01,738 - INFO - [main.main_async:682] - Creating TTS task for Taurus
+2025-05-13 13:21:01,738 - INFO - [main.main_async:694] - Creating TikTok image task for Taurus via Artemis GPU Super cluster
+2025-05-13 13:21:01,738 - INFO - [main.main_async:705] - Creating YouTube image task for Taurus via NebulaDrive Tensor Server
+2025-05-13 13:21:01,738 - INFO - [main.main_async:639] - --- Processing Zodiac Sign: Gemini ---
+2025-05-13 13:21:01,738 - INFO - [main.generate_tts_async:331] - Async TTS request for Taurus...
+2025-05-13 13:21:01,785 - INFO - [main.save_generated_content:311] - Saved Planetary JSON for Gemini to D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\run_2025-05-13_172026\Gemini\planetary_data_20250513_1720.json
+2025-05-13 13:21:01,786 - INFO - [main.generate_horoscope_with_ollama:254] - Attempting Ollama generation. Prompt starts: 'You are an expert astrologer with a unique voice. Your task is to generate a daily horoscope for Gemini. Today's Date: May 13, 2025 Astrological Data ...'
+2025-05-13 13:21:14,418 - INFO - [_client._send_single_request:1025] - HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2025-05-13 13:21:14,418 - INFO - [main.generate_horoscope_with_ollama:261] - Ollama API call completed.
+2025-05-13 13:21:14,419 - INFO - [main.save_generated_content:311] - Saved Horoscope Text for Gemini to D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\run_2025-05-13_172026\Gemini\horoscope_script_20250513_1720.txt
+2025-05-13 13:21:14,420 - INFO - [main.main_async:679] - Horoscope script for Gemini generated and saved.
+2025-05-13 13:21:14,420 - INFO - [main.main_async:682] - Creating TTS task for Gemini
+2025-05-13 13:21:14,420 - INFO - [main.main_async:694] - Creating TikTok image task for Gemini via NSFW-Core: Uncensored Server
+2025-05-13 13:21:14,420 - INFO - [main.main_async:705] - Creating YouTube image task for Gemini via Google US Server
+2025-05-13 13:21:14,420 - INFO - [main.main_async:639] - --- Processing Zodiac Sign: Cancer ---
+2025-05-13 13:21:14,420 - INFO - [main.generate_tts_async:331] - Async TTS request for Gemini...
+2025-05-13 13:21:14,470 - INFO - [main.save_generated_content:311] - Saved Planetary JSON for Cancer to D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\run_2025-05-13_172026\Cancer\planetary_data_20250513_1720.json
+2025-05-13 13:21:14,471 - INFO - [main.generate_horoscope_with_ollama:254] - Attempting Ollama generation. Prompt starts: 'You are an expert astrologer with a unique voice. Your task is to generate a daily horoscope for Cancer. Today's Date: May 13, 2025 Astrological Data ...'
+2025-05-13 13:21:28,930 - INFO - [_client._send_single_request:1025] - HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2025-05-13 13:21:28,931 - INFO - [main.generate_horoscope_with_ollama:261] - Ollama API call completed.
+2025-05-13 13:21:28,932 - INFO - [main.save_generated_content:311] - Saved Horoscope Text for Cancer to D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\run_2025-05-13_172026\Cancer\horoscope_script_20250513_1720.txt
+2025-05-13 13:21:28,932 - INFO - [main.main_async:679] - Horoscope script for Cancer generated and saved.
+2025-05-13 13:21:28,932 - INFO - [main.main_async:682] - Creating TTS task for Cancer
+2025-05-13 13:21:28,932 - INFO - [main.main_async:694] - Creating TikTok image task for Cancer via Azure Lite Supercomputer Server
+2025-05-13 13:21:28,932 - INFO - [main.main_async:705] - Creating YouTube image task for Cancer via Artemis GPU Super cluster
+2025-05-13 13:21:28,933 - INFO - [main.main_async:639] - --- Processing Zodiac Sign: Leo ---
+2025-05-13 13:21:28,982 - INFO - [main.save_generated_content:311] - Saved Planetary JSON for Leo to D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\run_2025-05-13_172026\Leo\planetary_data_20250513_1720.json
+2025-05-13 13:21:28,984 - INFO - [main.generate_horoscope_with_ollama:254] - Attempting Ollama generation. Prompt starts: 'You are an expert astrologer with a unique voice. Your task is to generate a daily horoscope for Leo. Today's Date: May 13, 2025 Astrological Data Sna...'
+2025-05-13 13:21:42,036 - INFO - [_client._send_single_request:1025] - HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2025-05-13 13:21:42,036 - INFO - [main.generate_horoscope_with_ollama:261] - Ollama API call completed.
+2025-05-13 13:21:42,037 - INFO - [main.save_generated_content:311] - Saved Horoscope Text for Leo to D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\run_2025-05-13_172026\Leo\horoscope_script_20250513_1720.txt
+2025-05-13 13:21:42,037 - INFO - [main.main_async:679] - Horoscope script for Leo generated and saved.
+2025-05-13 13:21:42,037 - INFO - [main.main_async:682] - Creating TTS task for Leo
+2025-05-13 13:21:42,037 - INFO - [main.main_async:694] - Creating TikTok image task for Leo via NebulaDrive Tensor Server
+2025-05-13 13:21:42,037 - INFO - [main.main_async:705] - Creating YouTube image task for Leo via NSFW-Core: Uncensored Server
+2025-05-13 13:21:42,038 - INFO - [main.main_async:639] - --- Processing Zodiac Sign: Virgo ---
+2025-05-13 13:21:42,038 - INFO - [main.save_generated_content:311] - Saved Planetary JSON for Virgo to D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\run_2025-05-13_172026\Virgo\planetary_data_20250513_1720.json
+2025-05-13 13:21:42,039 - INFO - [main.generate_horoscope_with_ollama:254] - Attempting Ollama generation. Prompt starts: 'You are an expert astrologer with a unique voice. Your task is to generate a daily horoscope for Virgo. Today's Date: May 13, 2025 Astrological Data S...'
+2025-05-13 13:21:55,247 - INFO - [_client._send_single_request:1025] - HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2025-05-13 13:21:55,248 - INFO - [main.generate_horoscope_with_ollama:261] - Ollama API call completed.
+2025-05-13 13:21:55,298 - INFO - [main.save_generated_content:311] - Saved Horoscope Text for Virgo to D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\run_2025-05-13_172026\Virgo\horoscope_script_20250513_1720.txt
+2025-05-13 13:21:55,298 - INFO - [main.main_async:679] - Horoscope script for Virgo generated and saved.
+2025-05-13 13:21:55,298 - INFO - [main.main_async:682] - Creating TTS task for Virgo
+2025-05-13 13:21:55,298 - INFO - [main.main_async:694] - Creating TikTok image task for Virgo via Google US Server
+2025-05-13 13:21:55,298 - INFO - [main.main_async:705] - Creating YouTube image task for Virgo via Azure Lite Supercomputer Server
+2025-05-13 13:21:55,298 - INFO - [main.main_async:639] - --- Processing Zodiac Sign: Libra ---
+2025-05-13 13:21:55,300 - INFO - [main.save_generated_content:311] - Saved Planetary JSON for Libra to D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\run_2025-05-13_172026\Libra\planetary_data_20250513_1720.json
+2025-05-13 13:21:55,300 - INFO - [main.generate_horoscope_with_ollama:254] - Attempting Ollama generation. Prompt starts: 'You are an expert astrologer with a unique voice. Your task is to generate a daily horoscope for Libra. Today's Date: May 13, 2025 Astrological Data S...'
+2025-05-13 13:22:09,460 - INFO - [_client._send_single_request:1025] - HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2025-05-13 13:22:09,460 - INFO - [main.generate_horoscope_with_ollama:261] - Ollama API call completed.
+2025-05-13 13:22:09,509 - INFO - [main.save_generated_content:311] - Saved Horoscope Text for Libra to D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\run_2025-05-13_172026\Libra\horoscope_script_20250513_1720.txt
+2025-05-13 13:22:09,510 - INFO - [main.main_async:679] - Horoscope script for Libra generated and saved.
+2025-05-13 13:22:09,510 - INFO - [main.main_async:682] - Creating TTS task for Libra
+2025-05-13 13:22:09,511 - INFO - [main.main_async:694] - Creating TikTok image task for Libra via Artemis GPU Super cluster
+2025-05-13 13:22:09,511 - INFO - [main.main_async:705] - Creating YouTube image task for Libra via NebulaDrive Tensor Server
+2025-05-13 13:22:09,511 - INFO - [main.main_async:639] - --- Processing Zodiac Sign: Scorpio ---
+2025-05-13 13:22:09,515 - INFO - [main.save_generated_content:311] - Saved Planetary JSON for Scorpio to D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\run_2025-05-13_172026\Scorpio\planetary_data_20250513_1720.json
+2025-05-13 13:22:09,516 - INFO - [main.generate_horoscope_with_ollama:254] - Attempting Ollama generation. Prompt starts: 'You are an expert astrologer with a unique voice. Your task is to generate a daily horoscope for Scorpio. Today's Date: May 13, 2025 Astrological Data...'
+2025-05-13 13:22:23,937 - INFO - [_client._send_single_request:1025] - HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2025-05-13 13:22:23,938 - INFO - [main.generate_horoscope_with_ollama:261] - Ollama API call completed.
+2025-05-13 13:22:23,939 - INFO - [main.save_generated_content:311] - Saved Horoscope Text for Scorpio to D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\run_2025-05-13_172026\Scorpio\horoscope_script_20250513_1720.txt
+2025-05-13 13:22:23,939 - INFO - [main.main_async:679] - Horoscope script for Scorpio generated and saved.
+2025-05-13 13:22:23,939 - INFO - [main.main_async:682] - Creating TTS task for Scorpio
+2025-05-13 13:22:23,939 - INFO - [main.main_async:694] - Creating TikTok image task for Scorpio via NSFW-Core: Uncensored Server
+2025-05-13 13:22:23,939 - INFO - [main.main_async:705] - Creating YouTube image task for Scorpio via Google US Server
+2025-05-13 13:22:23,939 - INFO - [main.main_async:639] - --- Processing Zodiac Sign: Sagittarius ---
+2025-05-13 13:22:23,986 - INFO - [main.save_generated_content:311] - Saved Planetary JSON for Sagittarius to D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\run_2025-05-13_172026\Sagittarius\planetary_data_20250513_1720.json
+2025-05-13 13:22:23,987 - INFO - [main.generate_horoscope_with_ollama:254] - Attempting Ollama generation. Prompt starts: 'You are an expert astrologer with a unique voice. Your task is to generate a daily horoscope for Sagittarius. Today's Date: May 13, 2025 Astrological ...'
+2025-05-13 13:22:37,354 - INFO - [_client._send_single_request:1025] - HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2025-05-13 13:22:37,355 - INFO - [main.generate_horoscope_with_ollama:261] - Ollama API call completed.
+2025-05-13 13:22:37,356 - INFO - [main.save_generated_content:311] - Saved Horoscope Text for Sagittarius to D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\run_2025-05-13_172026\Sagittarius\horoscope_script_20250513_1720.txt
+2025-05-13 13:22:37,356 - INFO - [main.main_async:679] - Horoscope script for Sagittarius generated and saved.
+2025-05-13 13:22:37,356 - INFO - [main.main_async:682] - Creating TTS task for Sagittarius
+2025-05-13 13:22:37,356 - INFO - [main.main_async:694] - Creating TikTok image task for Sagittarius via Azure Lite Supercomputer Server
+2025-05-13 13:22:37,356 - INFO - [main.main_async:705] - Creating YouTube image task for Sagittarius via Artemis GPU Super cluster
+2025-05-13 13:22:37,357 - INFO - [main.main_async:639] - --- Processing Zodiac Sign: Capricorn ---
+2025-05-13 13:22:37,406 - INFO - [main.save_generated_content:311] - Saved Planetary JSON for Capricorn to D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\run_2025-05-13_172026\Capricorn\planetary_data_20250513_1720.json
+2025-05-13 13:22:37,407 - INFO - [main.generate_horoscope_with_ollama:254] - Attempting Ollama generation. Prompt starts: 'You are an expert astrologer with a unique voice. Your task is to generate a daily horoscope for Capricorn. Today's Date: May 13, 2025 Astrological Da...'
+2025-05-13 13:22:49,663 - INFO - [main.save_generated_content:311] - Saved TTS Audio for Aries to D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\run_2025-05-13_172026\Aries\horoscope_audio_20250513_1720.wav
+2025-05-13 13:22:49,664 - INFO - [main.generate_tts_async:349] - Async TTS for Aries completed and saved to D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\run_2025-05-13_172026\Aries\horoscope_audio_20250513_1720.wav.
+2025-05-13 13:22:49,664 - INFO - [main.generate_tts_async:331] - Async TTS request for Cancer...
+2025-05-13 13:22:49,665 - INFO - [main.save_generated_content:311] - Saved TTS Audio for Gemini to D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\run_2025-05-13_172026\Gemini\horoscope_audio_20250513_1720.wav
+2025-05-13 13:22:49,665 - INFO - [main.generate_tts_async:349] - Async TTS for Gemini completed and saved to D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\run_2025-05-13_172026\Gemini\horoscope_audio_20250513_1720.wav.
+2025-05-13 13:22:49,665 - INFO - [main.save_generated_content:311] - Saved TTS Audio for Taurus to D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\run_2025-05-13_172026\Taurus\horoscope_audio_20250513_1720.wav
+2025-05-13 13:22:49,665 - INFO - [main.generate_tts_async:331] - Async TTS request for Leo...
+2025-05-13 13:22:49,666 - INFO - [main.generate_tts_async:349] - Async TTS for Taurus completed and saved to D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\run_2025-05-13_172026\Taurus\horoscope_audio_20250513_1720.wav.
+2025-05-13 13:22:49,666 - INFO - [main.generate_tts_async:331] - Async TTS request for Virgo...
+2025-05-13 13:22:54,622 - INFO - [_client._send_single_request:1025] - HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2025-05-13 13:22:54,622 - INFO - [main.generate_horoscope_with_ollama:261] - Ollama API call completed.
+2025-05-13 13:22:54,623 - INFO - [main.save_generated_content:311] - Saved Horoscope Text for Capricorn to D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\run_2025-05-13_172026\Capricorn\horoscope_script_20250513_1720.txt
+2025-05-13 13:22:54,624 - INFO - [main.main_async:679] - Horoscope script for Capricorn generated and saved.
+2025-05-13 13:22:54,624 - INFO - [main.main_async:682] - Creating TTS task for Capricorn
+2025-05-13 13:22:54,624 - INFO - [main.main_async:694] - Creating TikTok image task for Capricorn via NebulaDrive Tensor Server
+2025-05-13 13:22:54,624 - INFO - [main.main_async:705] - Creating YouTube image task for Capricorn via NSFW-Core: Uncensored Server
+2025-05-13 13:22:54,624 - INFO - [main.main_async:639] - --- Processing Zodiac Sign: Aquarius ---
+2025-05-13 13:22:54,625 - INFO - [main.save_generated_content:311] - Saved Planetary JSON for Aquarius to D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\run_2025-05-13_172026\Aquarius\planetary_data_20250513_1720.json
+2025-05-13 13:22:54,625 - INFO - [main.generate_horoscope_with_ollama:254] - Attempting Ollama generation. Prompt starts: 'You are an expert astrologer with a unique voice. Your task is to generate a daily horoscope for Aquarius. Today's Date: May 13, 2025 Astrological Dat...'
+2025-05-13 13:23:11,391 - INFO - [_client._send_single_request:1025] - HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2025-05-13 13:23:11,391 - INFO - [main.generate_horoscope_with_ollama:261] - Ollama API call completed.
+2025-05-13 13:23:11,393 - INFO - [main.save_generated_content:311] - Saved Horoscope Text for Aquarius to D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\run_2025-05-13_172026\Aquarius\horoscope_script_20250513_1720.txt
+2025-05-13 13:23:11,393 - INFO - [main.main_async:679] - Horoscope script for Aquarius generated and saved.
+2025-05-13 13:23:11,393 - INFO - [main.main_async:682] - Creating TTS task for Aquarius
+2025-05-13 13:23:11,393 - INFO - [main.main_async:694] - Creating TikTok image task for Aquarius via Google US Server
+2025-05-13 13:23:11,393 - INFO - [main.main_async:705] - Creating YouTube image task for Aquarius via Azure Lite Supercomputer Server
+2025-05-13 13:23:11,393 - INFO - [main.main_async:639] - --- Processing Zodiac Sign: Pisces ---
+2025-05-13 13:23:11,395 - INFO - [main.save_generated_content:311] - Saved Planetary JSON for Pisces to D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\run_2025-05-13_172026\Pisces\planetary_data_20250513_1720.json
+2025-05-13 13:23:11,395 - INFO - [main.generate_horoscope_with_ollama:254] - Attempting Ollama generation. Prompt starts: 'You are an expert astrologer with a unique voice. Your task is to generate a daily horoscope for Pisces. Today's Date: May 13, 2025 Astrological Data ...'
+2025-05-13 13:23:25,739 - INFO - [_client._send_single_request:1025] - HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2025-05-13 13:23:25,740 - INFO - [main.generate_horoscope_with_ollama:261] - Ollama API call completed.
+2025-05-13 13:23:25,788 - INFO - [main.save_generated_content:311] - Saved Horoscope Text for Pisces to D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\run_2025-05-13_172026\Pisces\horoscope_script_20250513_1720.txt
+2025-05-13 13:23:25,789 - INFO - [main.main_async:679] - Horoscope script for Pisces generated and saved.
+2025-05-13 13:23:25,789 - INFO - [main.main_async:682] - Creating TTS task for Pisces
+2025-05-13 13:23:25,789 - INFO - [main.main_async:694] - Creating TikTok image task for Pisces via Artemis GPU Super cluster
+2025-05-13 13:23:25,789 - INFO - [main.main_async:705] - Creating YouTube image task for Pisces via NebulaDrive Tensor Server
+2025-05-13 13:23:25,790 - INFO - [main.main_async:727] - Waiting for 36 media generation tasks to complete...
+2025-05-13 13:23:25,791 - INFO - [main.generate_tts_async:331] - Async TTS request for Libra...
+2025-05-13 13:23:25,791 - ERROR - [main.generate_tts_async:364] - Async TTS Error for Libra: Session is closed
+Traceback (most recent call last):
+  File "D:\AI\mcp_operator\projects\coffee_by_astrology_v1\main.py", line 335, in generate_tts_async
+    async with session.post(TTS_API_URL, json=tts_payload, timeout=timeout) as response:
+  File "D:\AI\mcp_operator\projects\coffee_by_astrology_v1\abcenv\lib\site-packages\aiohttp\client.py", line 1425, in __aenter__
+    self._resp: _RetType = await self._coro
+  File "D:\AI\mcp_operator\projects\coffee_by_astrology_v1\abcenv\lib\site-packages\aiohttp\client.py", line 512, in _request
+    raise RuntimeError("Session is closed")
+RuntimeError: Session is closed
+2025-05-13 13:23:25,798 - INFO - [main.generate_tts_async:331] - Async TTS request for Scorpio...
+2025-05-13 13:23:25,798 - ERROR - [main.generate_tts_async:364] - Async TTS Error for Scorpio: Session is closed
+Traceback (most recent call last):
+  File "D:\AI\mcp_operator\projects\coffee_by_astrology_v1\main.py", line 335, in generate_tts_async
+    async with session.post(TTS_API_URL, json=tts_payload, timeout=timeout) as response:
+  File "D:\AI\mcp_operator\projects\coffee_by_astrology_v1\abcenv\lib\site-packages\aiohttp\client.py", line 1425, in __aenter__
+    self._resp: _RetType = await self._coro
+  File "D:\AI\mcp_operator\projects\coffee_by_astrology_v1\abcenv\lib\site-packages\aiohttp\client.py", line 512, in _request
+    raise RuntimeError("Session is closed")
+RuntimeError: Session is closed
+2025-05-13 13:23:25,799 - INFO - [main.generate_tts_async:331] - Async TTS request for Sagittarius...
+2025-05-13 13:23:25,799 - ERROR - [main.generate_tts_async:364] - Async TTS Error for Sagittarius: Session is closed
+Traceback (most recent call last):
+  File "D:\AI\mcp_operator\projects\coffee_by_astrology_v1\main.py", line 335, in generate_tts_async
+    async with session.post(TTS_API_URL, json=tts_payload, timeout=timeout) as response:
+  File "D:\AI\mcp_operator\projects\coffee_by_astrology_v1\abcenv\lib\site-packages\aiohttp\client.py", line 1425, in __aenter__
+    self._resp: _RetType = await self._coro
+  File "D:\AI\mcp_operator\projects\coffee_by_astrology_v1\abcenv\lib\site-packages\aiohttp\client.py", line 512, in _request
+    raise RuntimeError("Session is closed")
+RuntimeError: Session is closed
+2025-05-13 13:23:25,799 - INFO - [main.generate_tts_async:331] - Async TTS request for Capricorn...
+2025-05-13 13:23:25,799 - ERROR - [main.generate_tts_async:364] - Async TTS Error for Capricorn: Session is closed
+Traceback (most recent call last):
+  File "D:\AI\mcp_operator\projects\coffee_by_astrology_v1\main.py", line 335, in generate_tts_async
+    async with session.post(TTS_API_URL, json=tts_payload, timeout=timeout) as response:
+  File "D:\AI\mcp_operator\projects\coffee_by_astrology_v1\abcenv\lib\site-packages\aiohttp\client.py", line 1425, in __aenter__
+    self._resp: _RetType = await self._coro
+  File "D:\AI\mcp_operator\projects\coffee_by_astrology_v1\abcenv\lib\site-packages\aiohttp\client.py", line 512, in _request
+    raise RuntimeError("Session is closed")
+RuntimeError: Session is closed
+2025-05-13 13:23:25,800 - INFO - [main.generate_tts_async:331] - Async TTS request for Aquarius...
+2025-05-13 13:23:25,800 - ERROR - [main.generate_tts_async:364] - Async TTS Error for Aquarius: Session is closed
+Traceback (most recent call last):
+  File "D:\AI\mcp_operator\projects\coffee_by_astrology_v1\main.py", line 335, in generate_tts_async
+    async with session.post(TTS_API_URL, json=tts_payload, timeout=timeout) as response:
+  File "D:\AI\mcp_operator\projects\coffee_by_astrology_v1\abcenv\lib\site-packages\aiohttp\client.py", line 1425, in __aenter__
+    self._resp: _RetType = await self._coro
+  File "D:\AI\mcp_operator\projects\coffee_by_astrology_v1\abcenv\lib\site-packages\aiohttp\client.py", line 512, in _request
+    raise RuntimeError("Session is closed")
+RuntimeError: Session is closed
+2025-05-13 13:23:25,801 - INFO - [main.generate_tts_async:331] - Async TTS request for Pisces...
+2025-05-13 13:23:25,801 - ERROR - [main.generate_tts_async:364] - Async TTS Error for Pisces: Session is closed
+Traceback (most recent call last):
+  File "D:\AI\mcp_operator\projects\coffee_by_astrology_v1\main.py", line 335, in generate_tts_async
+    async with session.post(TTS_API_URL, json=tts_payload, timeout=timeout) as response:
+  File "D:\AI\mcp_operator\projects\coffee_by_astrology_v1\abcenv\lib\site-packages\aiohttp\client.py", line 1425, in __aenter__
+    self._resp: _RetType = await self._coro
+  File "D:\AI\mcp_operator\projects\coffee_by_astrology_v1\abcenv\lib\site-packages\aiohttp\client.py", line 512, in _request
+    raise RuntimeError("Session is closed")
+RuntimeError: Session is closed
+2025-05-13 13:23:43,911 - INFO - [_client._send_single_request:1025] - HTTP Request: GET https://nihalgazi-flux-pro-unlimited.hf.space/gradio_api/file=/tmp/gradio/3d92d80c362facc5b220a9da47544c53df5b00cf9c1beb4833c6612db4a8b5b0/image.webp "HTTP/1.1 200 OK"
+2025-05-13 13:23:44,464 - INFO - [main.save_generated_content:305] - Removed temporary file: C:\Users\thoma\AppData\Local\Temp\gradio\fe5d55b1dfe7bcbb43cda7cabf01aa4875d3d94d37f0f788824cbdb5479a3029\image.webp
+2025-05-13 13:23:44,464 - INFO - [main.save_generated_content:311] - Saved YouTube Image for Aries to D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\run_2025-05-13_172026\Aries\youtube_image_20250513_1720.webp
+2025-05-13 13:23:44,465 - INFO - [main.generate_image_async:406] - Async YouTube Image for Aries (server: Azure Lite Supercomputer Server) completed and saved to D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\run_2025-05-13_172026\Aries\youtube_image_20250513_1720.webp.
+2025-05-13 13:23:45,168 - INFO - [_client._send_single_request:1025] - HTTP Request: POST https://nihalgazi-flux-pro-unlimited.hf.space/gradio_api/queue/join "HTTP/1.1 200 OK"
+2025-05-13 13:23:53,847 - INFO - [_client._send_single_request:1025] - HTTP Request: GET https://nihalgazi-flux-pro-unlimited.hf.space/gradio_api/file=/tmp/gradio/4723b71151361ca7e468c346ba8fdb24937e0ff57fb14702ee6cb558b65fa535/image.webp "HTTP/1.1 200 OK"
+2025-05-13 13:23:54,041 - INFO - [main.save_generated_content:305] - Removed temporary file: C:\Users\thoma\AppData\Local\Temp\gradio\af763be67dbeaa57128cd063ebe4585b421754c2045360348b76c9d995ecc750\image.webp
+2025-05-13 13:23:54,041 - INFO - [main.save_generated_content:311] - Saved TikTok Image for Aries to D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\run_2025-05-13_172026\Aries\tiktok_image_20250513_1720.webp
+2025-05-13 13:23:54,041 - INFO - [main.generate_image_async:406] - Async TikTok Image for Aries (server: Google US Server) completed and saved to D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\run_2025-05-13_172026\Aries\tiktok_image_20250513_1720.webp.
+2025-05-13 13:23:54,177 - INFO - [_client._send_single_request:1025] - HTTP Request: POST https://nihalgazi-flux-pro-unlimited.hf.space/gradio_api/queue/join "HTTP/1.1 200 OK"
+2025-05-13 13:26:41,173 - INFO - [_client._send_single_request:1025] - HTTP Request: GET https://nihalgazi-flux-pro-unlimited.hf.space/gradio_api/file=/tmp/gradio/65e7e473e54842768e657fe65f17ed41a7cc85cdbd4e5b15d0c1505bd0ed8172/image.webp "HTTP/1.1 200 OK"
+2025-05-13 13:26:41,324 - INFO - [main.save_generated_content:305] - Removed temporary file: C:\Users\thoma\AppData\Local\Temp\gradio\4c6116328be2e8d7b85eec03036db0bd3c38f44aa21b31cafaab9d21b88f1c4e\image.webp
+2025-05-13 13:26:41,324 - INFO - [main.save_generated_content:311] - Saved TikTok Image for Taurus to D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\run_2025-05-13_172026\Taurus\tiktok_image_20250513_1720.webp
+2025-05-13 13:26:41,324 - INFO - [main.generate_image_async:406] - Async TikTok Image for Taurus (server: Artemis GPU Super cluster) completed and saved to D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\run_2025-05-13_172026\Taurus\tiktok_image_20250513_1720.webp.
+2025-05-13 13:26:41,746 - INFO - [_client._send_single_request:1025] - HTTP Request: POST https://nihalgazi-flux-pro-unlimited.hf.space/gradio_api/queue/join "HTTP/1.1 200 OK"
+2025-05-13 13:26:51,265 - INFO - [_client._send_single_request:1025] - HTTP Request: GET https://nihalgazi-flux-pro-unlimited.hf.space/gradio_api/file=/tmp/gradio/a8696f254620cc5e6a8678c1725d5dce9cb0994413aabccb4135a1709d86cc26/image.webp "HTTP/1.1 200 OK"
+2025-05-13 13:26:51,425 - INFO - [main.save_generated_content:305] - Removed temporary file: C:\Users\thoma\AppData\Local\Temp\gradio\315fca79a87feb27b18951bf4fb17272dbe2a68e7219a1e8b3cb309073a78ea2\image.webp
+2025-05-13 13:26:51,426 - INFO - [main.save_generated_content:311] - Saved YouTube Image for Taurus to D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\run_2025-05-13_172026\Taurus\youtube_image_20250513_1720.webp
+2025-05-13 13:26:51,426 - INFO - [main.generate_image_async:406] - Async YouTube Image for Taurus (server: NebulaDrive Tensor Server) completed and saved to D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\run_2025-05-13_172026\Taurus\youtube_image_20250513_1720.webp.
+2025-05-13 13:26:51,799 - INFO - [_client._send_single_request:1025] - HTTP Request: POST https://nihalgazi-flux-pro-unlimited.hf.space/gradio_api/queue/join "HTTP/1.1 200 OK"
+2025-05-13 13:28:50,461 - INFO - [_client._send_single_request:1025] - HTTP Request: GET https://nihalgazi-flux-pro-unlimited.hf.space/gradio_api/file=/tmp/gradio/62cb767b7118dbc9c58848755d37cddbc3d42fb1f188c3b3887cf57b51638b98/image.webp "HTTP/1.1 200 OK"
+2025-05-13 13:28:50,492 - INFO - [main.save_generated_content:305] - Removed temporary file: C:\Users\thoma\AppData\Local\Temp\gradio\a95817a7e93397e807233f6f7a455aafec89e60d37e5eb009fe18efcc31b42ff\image.webp
+2025-05-13 13:28:50,493 - INFO - [main.save_generated_content:311] - Saved TikTok Image for Gemini to D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\run_2025-05-13_172026\Gemini\tiktok_image_20250513_1720.webp
+2025-05-13 13:28:50,494 - INFO - [main.generate_image_async:406] - Async TikTok Image for Gemini (server: NSFW-Core: Uncensored Server) completed and saved to D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\run_2025-05-13_172026\Gemini\tiktok_image_20250513_1720.webp.
+2025-05-13 13:28:51,730 - INFO - [_client._send_single_request:1025] - HTTP Request: POST https://nihalgazi-flux-pro-unlimited.hf.space/gradio_api/queue/join "HTTP/1.1 200 OK"
+2025-05-13 13:29:24,213 - INFO - [_client._send_single_request:1025] - HTTP Request: GET https://nihalgazi-flux-pro-unlimited.hf.space/gradio_api/file=/tmp/gradio/3b644db13619449ffea1c1dc79734705d2b18e4c055298b651f4a8d3c80dd98c/image.webp "HTTP/1.1 200 OK"
+2025-05-13 13:29:24,389 - INFO - [main.save_generated_content:305] - Removed temporary file: C:\Users\thoma\AppData\Local\Temp\gradio\7ded08120f0e07c8d073f096683e638da2d93b3692bc1585cdf36f79cf77ca59\image.webp
+2025-05-13 13:29:24,389 - INFO - [main.save_generated_content:311] - Saved YouTube Image for Gemini to D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\run_2025-05-13_172026\Gemini\youtube_image_20250513_1720.webp
+2025-05-13 13:29:24,391 - INFO - [main.generate_image_async:406] - Async YouTube Image for Gemini (server: Google US Server) completed and saved to D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\run_2025-05-13_172026\Gemini\youtube_image_20250513_1720.webp.
+2025-05-13 13:29:24,565 - INFO - [_client._send_single_request:1025] - HTTP Request: POST https://nihalgazi-flux-pro-unlimited.hf.space/gradio_api/queue/join "HTTP/1.1 200 OK"
+2025-05-13 13:32:21,357 - ERROR - [main.generate_image_async:414] - Async TikTok Image Generation Error for Cancer with server 'Azure Lite Supercomputer Server': The upstream Gradio app has raised an exception but has not enabled verbose error reporting. To enable, set show_error=True in launch().
+Traceback (most recent call last):
+  File "D:\AI\mcp_operator\projects\coffee_by_astrology_v1\main.py", line 380, in generate_image_async
+    img_path_result = await asyncio.to_thread(
+  File "C:\Program Files\Python310\lib\asyncio\threads.py", line 25, in to_thread
+    return await loop.run_in_executor(None, func_call)
+  File "C:\Program Files\Python310\lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "D:\AI\mcp_operator\projects\coffee_by_astrology_v1\abcenv\lib\site-packages\gradio_client\client.py", line 484, in predict
+    ).result()
+  File "D:\AI\mcp_operator\projects\coffee_by_astrology_v1\abcenv\lib\site-packages\gradio_client\client.py", line 1545, in result
+    return super().result(timeout=timeout)
+  File "C:\Program Files\Python310\lib\concurrent\futures\_base.py", line 458, in result
+    return self.__get_result()
+  File "C:\Program Files\Python310\lib\concurrent\futures\_base.py", line 403, in __get_result
+    raise self._exception
+  File "C:\Program Files\Python310\lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "D:\AI\mcp_operator\projects\coffee_by_astrology_v1\abcenv\lib\site-packages\gradio_client\client.py", line 1166, in _inner
+    predictions = _predict(*data)
+  File "D:\AI\mcp_operator\projects\coffee_by_astrology_v1\abcenv\lib\site-packages\gradio_client\client.py", line 1278, in _predict
+    raise AppError(
+gradio_client.exceptions.AppError: The upstream Gradio app has raised an exception but has not enabled verbose error reporting. To enable, set show_error=True in launch().
+2025-05-13 13:32:21,493 - INFO - [_client._send_single_request:1025] - HTTP Request: POST https://nihalgazi-flux-pro-unlimited.hf.space/gradio_api/queue/join "HTTP/1.1 200 OK"
+2025-05-13 13:32:28,752 - ERROR - [main.generate_image_async:414] - Async YouTube Image Generation Error for Cancer with server 'Artemis GPU Super cluster': The upstream Gradio app has raised an exception but has not enabled verbose error reporting. To enable, set show_error=True in launch().
+Traceback (most recent call last):
+  File "D:\AI\mcp_operator\projects\coffee_by_astrology_v1\main.py", line 380, in generate_image_async
+    img_path_result = await asyncio.to_thread(
+  File "C:\Program Files\Python310\lib\asyncio\threads.py", line 25, in to_thread
+    return await loop.run_in_executor(None, func_call)
+  File "C:\Program Files\Python310\lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "D:\AI\mcp_operator\projects\coffee_by_astrology_v1\abcenv\lib\site-packages\gradio_client\client.py", line 484, in predict
+    ).result()
+  File "D:\AI\mcp_operator\projects\coffee_by_astrology_v1\abcenv\lib\site-packages\gradio_client\client.py", line 1545, in result
+    return super().result(timeout=timeout)
+  File "C:\Program Files\Python310\lib\concurrent\futures\_base.py", line 458, in result
+    return self.__get_result()
+  File "C:\Program Files\Python310\lib\concurrent\futures\_base.py", line 403, in __get_result
+    raise self._exception
+  File "C:\Program Files\Python310\lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "D:\AI\mcp_operator\projects\coffee_by_astrology_v1\abcenv\lib\site-packages\gradio_client\client.py", line 1166, in _inner
+    predictions = _predict(*data)
+  File "D:\AI\mcp_operator\projects\coffee_by_astrology_v1\abcenv\lib\site-packages\gradio_client\client.py", line 1278, in _predict
+    raise AppError(
+gradio_client.exceptions.AppError: The upstream Gradio app has raised an exception but has not enabled verbose error reporting. To enable, set show_error=True in launch().
+2025-05-13 13:32:28,909 - INFO - [_client._send_single_request:1025] - HTTP Request: POST https://nihalgazi-flux-pro-unlimited.hf.space/gradio_api/queue/join "HTTP/1.1 200 OK"
+2025-05-13 13:35:13,049 - INFO - [_client._send_single_request:1025] - HTTP Request: GET https://nihalgazi-flux-pro-unlimited.hf.space/gradio_api/file=/tmp/gradio/fcd05f1289c817091b58d8a832ce8f89af4b2f8797cf791a80e8362e8a50f35f/image.webp "HTTP/1.1 200 OK"
+2025-05-13 13:35:13,163 - INFO - [main.save_generated_content:305] - Removed temporary file: C:\Users\thoma\AppData\Local\Temp\gradio\c4fa46e2ce097309a664464d306aee7b1ae26a0b40644352e3aebe5a0a670b6c\image.webp
+2025-05-13 13:35:13,163 - INFO - [main.save_generated_content:311] - Saved TikTok Image for Leo to D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\run_2025-05-13_172026\Leo\tiktok_image_20250513_1720.webp
+2025-05-13 13:35:13,163 - INFO - [main.generate_image_async:406] - Async TikTok Image for Leo (server: NebulaDrive Tensor Server) completed and saved to D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\run_2025-05-13_172026\Leo\tiktok_image_20250513_1720.webp.
+2025-05-13 13:35:13,273 - INFO - [_client._send_single_request:1025] - HTTP Request: POST https://nihalgazi-flux-pro-unlimited.hf.space/gradio_api/queue/join "HTTP/1.1 200 OK"
+2025-05-13 13:35:18,828 - INFO - [_client._send_single_request:1025] - HTTP Request: GET https://nihalgazi-flux-pro-unlimited.hf.space/gradio_api/file=/tmp/gradio/8d6ced387cf13fef3703799e1280256cd7697be59f7344b8f3e77a6c82978b68/image.webp "HTTP/1.1 200 OK"
+2025-05-13 13:35:18,894 - INFO - [main.save_generated_content:305] - Removed temporary file: C:\Users\thoma\AppData\Local\Temp\gradio\23ee98e6a7dab25fa7942f4ecfb8d1ea0dffae9f12bdcad0be273a5f7931c4a9\image.webp
+2025-05-13 13:35:18,894 - INFO - [main.save_generated_content:311] - Saved YouTube Image for Leo to D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\run_2025-05-13_172026\Leo\youtube_image_20250513_1720.webp
+2025-05-13 13:35:18,895 - INFO - [main.generate_image_async:406] - Async YouTube Image for Leo (server: NSFW-Core: Uncensored Server) completed and saved to D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\run_2025-05-13_172026\Leo\youtube_image_20250513_1720.webp.
+2025-05-13 13:35:19,035 - INFO - [_client._send_single_request:1025] - HTTP Request: POST https://nihalgazi-flux-pro-unlimited.hf.space/gradio_api/queue/join "HTTP/1.1 200 OK"
+2025-05-13 13:38:20,184 - INFO - [_client._send_single_request:1025] - HTTP Request: GET https://nihalgazi-flux-pro-unlimited.hf.space/gradio_api/file=/tmp/gradio/44e0307c7926c7947663205ac774526344771b8fd882ecc472d35526d3e4de55/image.webp "HTTP/1.1 200 OK"
+2025-05-13 13:38:20,339 - INFO - [main.save_generated_content:305] - Removed temporary file: C:\Users\thoma\AppData\Local\Temp\gradio\086c5f2292a9c6c414b76f2e12b84b792b685153cc8fe218a178113fa70340ab\image.webp
+2025-05-13 13:38:20,339 - INFO - [main.save_generated_content:311] - Saved TikTok Image for Virgo to D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\run_2025-05-13_172026\Virgo\tiktok_image_20250513_1720.webp
+2025-05-13 13:38:20,339 - INFO - [main.generate_image_async:406] - Async TikTok Image for Virgo (server: Google US Server) completed and saved to D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\run_2025-05-13_172026\Virgo\tiktok_image_20250513_1720.webp.
+2025-05-13 13:38:20,480 - INFO - [_client._send_single_request:1025] - HTTP Request: POST https://nihalgazi-flux-pro-unlimited.hf.space/gradio_api/queue/join "HTTP/1.1 200 OK"
+2025-05-13 13:38:29,092 - INFO - [_client._send_single_request:1025] - HTTP Request: GET https://nihalgazi-flux-pro-unlimited.hf.space/gradio_api/file=/tmp/gradio/c48e815e80114cf1de357e119fc540d1d682a9b698eaad49538a038e3d4e57c8/image.webp "HTTP/1.1 200 OK"
+2025-05-13 13:38:29,249 - INFO - [main.save_generated_content:305] - Removed temporary file: C:\Users\thoma\AppData\Local\Temp\gradio\fab99054d0330995ffe15ff0954046f5232ce1fcaae16dfa3a9aae000d565be8\image.webp
+2025-05-13 13:38:29,249 - INFO - [main.save_generated_content:311] - Saved YouTube Image for Virgo to D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\run_2025-05-13_172026\Virgo\youtube_image_20250513_1720.webp
+2025-05-13 13:38:29,251 - INFO - [main.generate_image_async:406] - Async YouTube Image for Virgo (server: Azure Lite Supercomputer Server) completed and saved to D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\run_2025-05-13_172026\Virgo\youtube_image_20250513_1720.webp.
+2025-05-13 13:38:31,001 - INFO - [_client._send_single_request:1025] - HTTP Request: POST https://nihalgazi-flux-pro-unlimited.hf.space/gradio_api/queue/join "HTTP/1.1 200 OK"
+2025-05-13 13:41:31,242 - INFO - [_client._send_single_request:1025] - HTTP Request: GET https://nihalgazi-flux-pro-unlimited.hf.space/gradio_api/file=/tmp/gradio/018e10277ab7af155f55c95924b6e1fbe9efcc8136352bff5538d6250a7f1888/image.webp "HTTP/1.1 200 OK"
+2025-05-13 13:41:31,333 - INFO - [main.save_generated_content:305] - Removed temporary file: C:\Users\thoma\AppData\Local\Temp\gradio\a2f617914c5b382fb8432fc4d6c1eeb6ee60003ddfdfbb9d67bdd8ada4bbd6bb\image.webp
+2025-05-13 13:41:31,333 - INFO - [main.save_generated_content:311] - Saved TikTok Image for Libra to D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\run_2025-05-13_172026\Libra\tiktok_image_20250513_1720.webp
+2025-05-13 13:41:31,334 - INFO - [main.generate_image_async:406] - Async TikTok Image for Libra (server: Artemis GPU Super cluster) completed and saved to D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\run_2025-05-13_172026\Libra\tiktok_image_20250513_1720.webp.
+2025-05-13 13:41:31,720 - INFO - [_client._send_single_request:1025] - HTTP Request: POST https://nihalgazi-flux-pro-unlimited.hf.space/gradio_api/queue/join "HTTP/1.1 200 OK"
+2025-05-13 13:41:51,984 - INFO - [_client._send_single_request:1025] - HTTP Request: GET https://nihalgazi-flux-pro-unlimited.hf.space/gradio_api/file=/tmp/gradio/0d43e2c3c5cf28f498b36b7be40b030d553398935fd1ed1393551c230e72a56d/image.webp "HTTP/1.1 200 OK"
+2025-05-13 13:41:52,044 - INFO - [main.save_generated_content:305] - Removed temporary file: C:\Users\thoma\AppData\Local\Temp\gradio\2747ca08464c1cf1e3f2339b3b8931ab3fa69defedaedd1acc1934440d6c546b\image.webp
+2025-05-13 13:41:52,044 - INFO - [main.save_generated_content:311] - Saved YouTube Image for Libra to D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\run_2025-05-13_172026\Libra\youtube_image_20250513_1720.webp
+2025-05-13 13:41:52,044 - INFO - [main.generate_image_async:406] - Async YouTube Image for Libra (server: NebulaDrive Tensor Server) completed and saved to D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\run_2025-05-13_172026\Libra\youtube_image_20250513_1720.webp.
+2025-05-13 13:41:52,162 - INFO - [_client._send_single_request:1025] - HTTP Request: POST https://nihalgazi-flux-pro-unlimited.hf.space/gradio_api/queue/join "HTTP/1.1 200 OK"
+2025-05-13 13:43:25,944 - INFO - [_client._send_single_request:1025] - HTTP Request: GET https://nihalgazi-flux-pro-unlimited.hf.space/gradio_api/file=/tmp/gradio/426e272281c61969adcbe8f72cdb91dd9d8dfd37bbd4a11c95d750aa3b532a25/image.webp "HTTP/1.1 200 OK"
+2025-05-13 13:43:26,004 - INFO - [main.save_generated_content:305] - Removed temporary file: C:\Users\thoma\AppData\Local\Temp\gradio\1cf00af930c5f4cca99d95c4ee13e24359e767db9750fca4e56fa30b13203a39\image.webp
+2025-05-13 13:43:26,004 - INFO - [main.save_generated_content:311] - Saved TikTok Image for Scorpio to D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\run_2025-05-13_172026\Scorpio\tiktok_image_20250513_1720.webp
+2025-05-13 13:43:26,005 - INFO - [main.generate_image_async:406] - Async TikTok Image for Scorpio (server: NSFW-Core: Uncensored Server) completed and saved to D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\run_2025-05-13_172026\Scorpio\tiktok_image_20250513_1720.webp.
+2025-05-13 13:43:26,133 - INFO - [_client._send_single_request:1025] - HTTP Request: POST https://nihalgazi-flux-pro-unlimited.hf.space/gradio_api/queue/join "HTTP/1.1 200 OK"
+2025-05-13 13:43:51,672 - INFO - [_client._send_single_request:1025] - HTTP Request: GET https://nihalgazi-flux-pro-unlimited.hf.space/gradio_api/file=/tmp/gradio/d0377141da35260680835046f421a39f05b75fd2a7c76b8f9fb39bb7b47a77c3/image.webp "HTTP/1.1 200 OK"
+2025-05-13 13:43:51,792 - INFO - [main.save_generated_content:305] - Removed temporary file: C:\Users\thoma\AppData\Local\Temp\gradio\fb4c9ea8fd761e00618f3b3546d148ee529317c5488d250f0881b230d18e50e4\image.webp
+2025-05-13 13:43:51,792 - INFO - [main.save_generated_content:311] - Saved YouTube Image for Scorpio to D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\run_2025-05-13_172026\Scorpio\youtube_image_20250513_1720.webp
+2025-05-13 13:43:51,792 - INFO - [main.generate_image_async:406] - Async YouTube Image for Scorpio (server: Google US Server) completed and saved to D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\run_2025-05-13_172026\Scorpio\youtube_image_20250513_1720.webp.
+2025-05-13 13:43:51,919 - INFO - [_client._send_single_request:1025] - HTTP Request: POST https://nihalgazi-flux-pro-unlimited.hf.space/gradio_api/queue/join "HTTP/1.1 200 OK"
+2025-05-13 13:45:13,659 - INFO - [_client._send_single_request:1025] - HTTP Request: GET https://nihalgazi-flux-pro-unlimited.hf.space/gradio_api/file=/tmp/gradio/3cdb88c56df4a150bc8a37a1e6a14c61380b589177dd27d7cce61985ba6907d2/image.webp "HTTP/1.1 200 OK"
+2025-05-13 13:45:13,772 - INFO - [main.save_generated_content:305] - Removed temporary file: C:\Users\thoma\AppData\Local\Temp\gradio\91d49b37d1229cd34abae08f2f0f7c63a1a2ddbee16d776e62391b41ee5f56e4\image.webp
+2025-05-13 13:45:13,773 - INFO - [main.save_generated_content:311] - Saved TikTok Image for Sagittarius to D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\run_2025-05-13_172026\Sagittarius\tiktok_image_20250513_1720.webp
+2025-05-13 13:45:13,773 - INFO - [main.generate_image_async:406] - Async TikTok Image for Sagittarius (server: Azure Lite Supercomputer Server) completed and saved to D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\run_2025-05-13_172026\Sagittarius\tiktok_image_20250513_1720.webp.
+2025-05-13 13:45:13,916 - INFO - [_client._send_single_request:1025] - HTTP Request: POST https://nihalgazi-flux-pro-unlimited.hf.space/gradio_api/queue/join "HTTP/1.1 200 OK"
+2025-05-13 13:45:58,972 - INFO - [_client._send_single_request:1025] - HTTP Request: GET https://nihalgazi-flux-pro-unlimited.hf.space/gradio_api/file=/tmp/gradio/3aea69dc4785d2f8d8179092375b4872bbc34cd7fb240400191b8d889afded4a/image.webp "HTTP/1.1 200 OK"
+2025-05-13 13:45:59,050 - INFO - [main.save_generated_content:305] - Removed temporary file: C:\Users\thoma\AppData\Local\Temp\gradio\acac76b5f04fd3bab67f4c9682dd8cdd1b2a86124249e26e72d5cdfdbfca8e4e\image.webp
+2025-05-13 13:45:59,050 - INFO - [main.save_generated_content:311] - Saved YouTube Image for Sagittarius to D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\run_2025-05-13_172026\Sagittarius\youtube_image_20250513_1720.webp
+2025-05-13 13:45:59,051 - INFO - [main.generate_image_async:406] - Async YouTube Image for Sagittarius (server: Artemis GPU Super cluster) completed and saved to D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\run_2025-05-13_172026\Sagittarius\youtube_image_20250513_1720.webp.
+2025-05-13 13:45:59,175 - INFO - [_client._send_single_request:1025] - HTTP Request: POST https://nihalgazi-flux-pro-unlimited.hf.space/gradio_api/queue/join "HTTP/1.1 200 OK"
+2025-05-13 13:47:27,366 - INFO - [_client._send_single_request:1025] - HTTP Request: GET https://nihalgazi-flux-pro-unlimited.hf.space/gradio_api/file=/tmp/gradio/49f943d8acd35c3e74aa2acc7fed7422d401a38e27b4e7205bcce59324e3a919/image.webp "HTTP/1.1 200 OK"
+2025-05-13 13:47:27,467 - INFO - [main.save_generated_content:305] - Removed temporary file: C:\Users\thoma\AppData\Local\Temp\gradio\b8bf0064c6d305d5e54ddf0579a7ccc9e9f58e7a0821941cce8d5cd5875d02d5\image.webp
+2025-05-13 13:47:27,467 - INFO - [main.save_generated_content:311] - Saved TikTok Image for Capricorn to D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\run_2025-05-13_172026\Capricorn\tiktok_image_20250513_1720.webp
+2025-05-13 13:47:27,468 - INFO - [main.generate_image_async:406] - Async TikTok Image for Capricorn (server: NebulaDrive Tensor Server) completed and saved to D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\run_2025-05-13_172026\Capricorn\tiktok_image_20250513_1720.webp.
+2025-05-13 13:47:27,603 - INFO - [_client._send_single_request:1025] - HTTP Request: POST https://nihalgazi-flux-pro-unlimited.hf.space/gradio_api/queue/join "HTTP/1.1 200 OK"
+2025-05-13 13:47:44,890 - INFO - [_client._send_single_request:1025] - HTTP Request: GET https://nihalgazi-flux-pro-unlimited.hf.space/gradio_api/file=/tmp/gradio/5c1a8a3b6cd07fb6e632b4f8d1c356c15760c6565f235ea23d55c5bd074f5c28/image.webp "HTTP/1.1 200 OK"
+2025-05-13 13:47:44,959 - INFO - [main.save_generated_content:305] - Removed temporary file: C:\Users\thoma\AppData\Local\Temp\gradio\cbb7db07b663a1d8ce7362169987f8fed23b4166e439b6a3b076eda1c034e413\image.webp
+2025-05-13 13:47:44,959 - INFO - [main.save_generated_content:311] - Saved YouTube Image for Capricorn to D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\run_2025-05-13_172026\Capricorn\youtube_image_20250513_1720.webp
+2025-05-13 13:47:44,960 - INFO - [main.generate_image_async:406] - Async YouTube Image for Capricorn (server: NSFW-Core: Uncensored Server) completed and saved to D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\run_2025-05-13_172026\Capricorn\youtube_image_20250513_1720.webp.
+2025-05-13 13:47:46,096 - INFO - [_client._send_single_request:1025] - HTTP Request: POST https://nihalgazi-flux-pro-unlimited.hf.space/gradio_api/queue/join "HTTP/1.1 200 OK"
+2025-05-13 13:49:06,818 - INFO - [_client._send_single_request:1025] - HTTP Request: GET https://nihalgazi-flux-pro-unlimited.hf.space/gradio_api/file=/tmp/gradio/9f7c6538e72f2543f6ad3c6778e424ab6bfc9ae21dcc97dac9f523f4424d1dd0/image.webp "HTTP/1.1 200 OK"
+2025-05-13 13:49:06,956 - INFO - [main.save_generated_content:305] - Removed temporary file: C:\Users\thoma\AppData\Local\Temp\gradio\c9c7135856a24b6489c8f34dfbee3ead2924c21f9f061b8a0b37b6be1ef9ccf1\image.webp
+2025-05-13 13:49:06,956 - INFO - [main.save_generated_content:311] - Saved TikTok Image for Aquarius to D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\run_2025-05-13_172026\Aquarius\tiktok_image_20250513_1720.webp
+2025-05-13 13:49:06,956 - INFO - [main.generate_image_async:406] - Async TikTok Image for Aquarius (server: Google US Server) completed and saved to D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\run_2025-05-13_172026\Aquarius\tiktok_image_20250513_1720.webp.
+2025-05-13 13:49:07,099 - INFO - [_client._send_single_request:1025] - HTTP Request: POST https://nihalgazi-flux-pro-unlimited.hf.space/gradio_api/queue/join "HTTP/1.1 200 OK"
+2025-05-13 13:49:22,099 - INFO - [_client._send_single_request:1025] - HTTP Request: GET https://nihalgazi-flux-pro-unlimited.hf.space/gradio_api/file=/tmp/gradio/a791777ecf25366622271e87f7cb28f10ddcfb1611aacd8362ffef5fb7f76ab6/image.webp "HTTP/1.1 200 OK"
+2025-05-13 13:49:22,188 - INFO - [main.save_generated_content:305] - Removed temporary file: C:\Users\thoma\AppData\Local\Temp\gradio\19cf5c470c09dd4507f78e5dbcf3839bcca88a506823dfbc5d81096d030542fd\image.webp
+2025-05-13 13:49:22,188 - INFO - [main.save_generated_content:311] - Saved YouTube Image for Aquarius to D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\run_2025-05-13_172026\Aquarius\youtube_image_20250513_1720.webp
+2025-05-13 13:49:22,188 - INFO - [main.generate_image_async:406] - Async YouTube Image for Aquarius (server: Azure Lite Supercomputer Server) completed and saved to D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\run_2025-05-13_172026\Aquarius\youtube_image_20250513_1720.webp.
+2025-05-13 13:49:22,700 - INFO - [_client._send_single_request:1025] - HTTP Request: POST https://nihalgazi-flux-pro-unlimited.hf.space/gradio_api/queue/join "HTTP/1.1 200 OK"
+2025-05-13 13:50:15,871 - INFO - [_client._send_single_request:1025] - HTTP Request: GET https://nihalgazi-flux-pro-unlimited.hf.space/gradio_api/file=/tmp/gradio/a2490a813224de9605fee486940e9230b991b769898ad36298acb62608d9439c/image.webp "HTTP/1.1 200 OK"
+2025-05-13 13:50:16,185 - INFO - [main.save_generated_content:305] - Removed temporary file: C:\Users\thoma\AppData\Local\Temp\gradio\30476aa6f0de84e5c7f90877242d8874c06fb11ee406acbc0552c4d42559d849\image.webp
+2025-05-13 13:50:16,185 - INFO - [main.save_generated_content:311] - Saved TikTok Image for Pisces to D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\run_2025-05-13_172026\Pisces\tiktok_image_20250513_1720.webp
+2025-05-13 13:50:16,186 - INFO - [main.generate_image_async:406] - Async TikTok Image for Pisces (server: Artemis GPU Super cluster) completed and saved to D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\run_2025-05-13_172026\Pisces\tiktok_image_20250513_1720.webp.
+2025-05-13 13:51:05,324 - INFO - [_client._send_single_request:1025] - HTTP Request: GET https://nihalgazi-flux-pro-unlimited.hf.space/gradio_api/file=/tmp/gradio/ee519d0704940d92e8539b3ee0e293597afaf3e5c5fc7f7734a6d1645980f372/image.webp "HTTP/1.1 200 OK"
+2025-05-13 13:51:05,406 - INFO - [main.save_generated_content:305] - Removed temporary file: C:\Users\thoma\AppData\Local\Temp\gradio\d77400671251dd73ee870ab2b22bd8b0acb84d3f3917eb288d7221ab82a26630\image.webp
+2025-05-13 13:51:05,406 - INFO - [main.save_generated_content:311] - Saved YouTube Image for Pisces to D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\run_2025-05-13_172026\Pisces\youtube_image_20250513_1720.webp
+2025-05-13 13:51:05,406 - INFO - [main.generate_image_async:406] - Async YouTube Image for Pisces (server: NebulaDrive Tensor Server) completed and saved to D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\run_2025-05-13_172026\Pisces\youtube_image_20250513_1720.webp.
+2025-05-13 13:51:05,406 - INFO - [main.main_async:741] - Media task TTS_Aries completed successfully. Result: D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\run_2025-05-13_172026\Aries\horosc
+2025-05-13 13:51:05,406 - INFO - [main.main_async:741] - Media task TikTokImage_Aries completed successfully. Result: D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\run_2025-05-13_172026\Aries\tiktok
+2025-05-13 13:51:05,406 - INFO - [main.main_async:741] - Media task YouTubeImage_Aries completed successfully. Result: D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\run_2025-05-13_172026\Aries\youtub
+2025-05-13 13:51:05,406 - INFO - [main.main_async:741] - Media task TTS_Taurus completed successfully. Result: D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\run_2025-05-13_172026\Taurus\horos
+2025-05-13 13:51:05,406 - INFO - [main.main_async:741] - Media task TikTokImage_Taurus completed successfully. Result: D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\run_2025-05-13_172026\Taurus\tikto
+2025-05-13 13:51:05,406 - INFO - [main.main_async:741] - Media task YouTubeImage_Taurus completed successfully. Result: D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\run_2025-05-13_172026\Taurus\youtu
+2025-05-13 13:51:05,406 - INFO - [main.main_async:741] - Media task TTS_Gemini completed successfully. Result: D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\run_2025-05-13_172026\Gemini\horos
+2025-05-13 13:51:05,406 - INFO - [main.main_async:741] - Media task TikTokImage_Gemini completed successfully. Result: D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\run_2025-05-13_172026\Gemini\tikto
+2025-05-13 13:51:05,406 - INFO - [main.main_async:741] - Media task YouTubeImage_Gemini completed successfully. Result: D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\run_2025-05-13_172026\Gemini\youtu
+2025-05-13 13:51:05,406 - ERROR - [main.main_async:737] - Media task TTS_Cancer failed: 'ServerDisconnectedError' object has no attribute 'request_info'
+Traceback (most recent call last):
+  File "D:\AI\mcp_operator\projects\coffee_by_astrology_v1\main.py", line 335, in generate_tts_async
+    async with session.post(TTS_API_URL, json=tts_payload, timeout=timeout) as response:
+  File "D:\AI\mcp_operator\projects\coffee_by_astrology_v1\abcenv\lib\site-packages\aiohttp\client.py", line 1425, in __aenter__
+    self._resp: _RetType = await self._coro
+  File "D:\AI\mcp_operator\projects\coffee_by_astrology_v1\abcenv\lib\site-packages\aiohttp\client.py", line 730, in _request
+    await resp.start(conn)
+  File "D:\AI\mcp_operator\projects\coffee_by_astrology_v1\abcenv\lib\site-packages\aiohttp\client_reqrep.py", line 1059, in start
+    message, payload = await protocol.read()  # type: ignore[union-attr]
+  File "D:\AI\mcp_operator\projects\coffee_by_astrology_v1\abcenv\lib\site-packages\aiohttp\streams.py", line 672, in read
+    await self._waiter
+aiohttp.client_exceptions.ServerDisconnectedError: Server disconnected
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\AI\mcp_operator\projects\coffee_by_astrology_v1\main.py", line 322, in run_with_semaphore
+    result = await awaitable_task_coro
+  File "D:\AI\mcp_operator\projects\coffee_by_astrology_v1\main.py", line 358, in generate_tts_async
+    logging.error(f"Async TTS ClientConnectionError for {zodiac_sign} (URL: {e_tts_conn.request_info.url if e_tts_conn.request_info else 'N/A'}): {e_tts_conn}", exc_info=True)
+AttributeError: 'ServerDisconnectedError' object has no attribute 'request_info'
+2025-05-13 13:51:05,410 - ERROR - [main.main_async:737] - Media task TikTokImage_Cancer failed: Error: Generic TikTok Image Generation Error for Cancer: The upstream Gradio app has raised an exception but has not enabled verbose error reporting. To enable, set show_error=True in launch().
+2025-05-13 13:51:05,410 - ERROR - [main.main_async:737] - Media task YouTubeImage_Cancer failed: Error: Generic YouTube Image Generation Error for Cancer: The upstream Gradio app has raised an exception but has not enabled verbose error reporting. To enable, set show_error=True in launch().
+2025-05-13 13:51:05,410 - ERROR - [main.main_async:737] - Media task TTS_Leo failed: 'ServerDisconnectedError' object has no attribute 'request_info'
+Traceback (most recent call last):
+  File "D:\AI\mcp_operator\projects\coffee_by_astrology_v1\main.py", line 335, in generate_tts_async
+    async with session.post(TTS_API_URL, json=tts_payload, timeout=timeout) as response:
+  File "D:\AI\mcp_operator\projects\coffee_by_astrology_v1\abcenv\lib\site-packages\aiohttp\client.py", line 1425, in __aenter__
+    self._resp: _RetType = await self._coro
+  File "D:\AI\mcp_operator\projects\coffee_by_astrology_v1\abcenv\lib\site-packages\aiohttp\client.py", line 730, in _request
+    await resp.start(conn)
+  File "D:\AI\mcp_operator\projects\coffee_by_astrology_v1\abcenv\lib\site-packages\aiohttp\client_reqrep.py", line 1059, in start
+    message, payload = await protocol.read()  # type: ignore[union-attr]
+  File "D:\AI\mcp_operator\projects\coffee_by_astrology_v1\abcenv\lib\site-packages\aiohttp\streams.py", line 672, in read
+    await self._waiter
+aiohttp.client_exceptions.ServerDisconnectedError: Server disconnected
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\AI\mcp_operator\projects\coffee_by_astrology_v1\main.py", line 322, in run_with_semaphore
+    result = await awaitable_task_coro
+  File "D:\AI\mcp_operator\projects\coffee_by_astrology_v1\main.py", line 358, in generate_tts_async
+    logging.error(f"Async TTS ClientConnectionError for {zodiac_sign} (URL: {e_tts_conn.request_info.url if e_tts_conn.request_info else 'N/A'}): {e_tts_conn}", exc_info=True)
+AttributeError: 'ServerDisconnectedError' object has no attribute 'request_info'
+2025-05-13 13:51:05,411 - INFO - [main.main_async:741] - Media task TikTokImage_Leo completed successfully. Result: D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\run_2025-05-13_172026\Leo\tiktok_i
+2025-05-13 13:51:05,411 - INFO - [main.main_async:741] - Media task YouTubeImage_Leo completed successfully. Result: D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\run_2025-05-13_172026\Leo\youtube_
+2025-05-13 13:51:05,411 - ERROR - [main.main_async:737] - Media task TTS_Virgo failed: 'ServerDisconnectedError' object has no attribute 'request_info'
+Traceback (most recent call last):
+  File "D:\AI\mcp_operator\projects\coffee_by_astrology_v1\main.py", line 335, in generate_tts_async
+    async with session.post(TTS_API_URL, json=tts_payload, timeout=timeout) as response:
+  File "D:\AI\mcp_operator\projects\coffee_by_astrology_v1\abcenv\lib\site-packages\aiohttp\client.py", line 1425, in __aenter__
+    self._resp: _RetType = await self._coro
+  File "D:\AI\mcp_operator\projects\coffee_by_astrology_v1\abcenv\lib\site-packages\aiohttp\client.py", line 730, in _request
+    await resp.start(conn)
+  File "D:\AI\mcp_operator\projects\coffee_by_astrology_v1\abcenv\lib\site-packages\aiohttp\client_reqrep.py", line 1059, in start
+    message, payload = await protocol.read()  # type: ignore[union-attr]
+  File "D:\AI\mcp_operator\projects\coffee_by_astrology_v1\abcenv\lib\site-packages\aiohttp\streams.py", line 672, in read
+    await self._waiter
+aiohttp.client_exceptions.ServerDisconnectedError: Server disconnected
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\AI\mcp_operator\projects\coffee_by_astrology_v1\main.py", line 322, in run_with_semaphore
+    result = await awaitable_task_coro
+  File "D:\AI\mcp_operator\projects\coffee_by_astrology_v1\main.py", line 358, in generate_tts_async
+    logging.error(f"Async TTS ClientConnectionError for {zodiac_sign} (URL: {e_tts_conn.request_info.url if e_tts_conn.request_info else 'N/A'}): {e_tts_conn}", exc_info=True)
+AttributeError: 'ServerDisconnectedError' object has no attribute 'request_info'
+2025-05-13 13:51:05,412 - INFO - [main.main_async:741] - Media task TikTokImage_Virgo completed successfully. Result: D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\run_2025-05-13_172026\Virgo\tiktok
+2025-05-13 13:51:05,412 - INFO - [main.main_async:741] - Media task YouTubeImage_Virgo completed successfully. Result: D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\run_2025-05-13_172026\Virgo\youtub
+2025-05-13 13:51:05,412 - ERROR - [main.main_async:737] - Media task TTS_Libra failed: Error: Generic TTS Error for Libra: Session is closed
+2025-05-13 13:51:05,412 - INFO - [main.main_async:741] - Media task TikTokImage_Libra completed successfully. Result: D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\run_2025-05-13_172026\Libra\tiktok
+2025-05-13 13:51:05,412 - INFO - [main.main_async:741] - Media task YouTubeImage_Libra completed successfully. Result: D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\run_2025-05-13_172026\Libra\youtub
+2025-05-13 13:51:05,412 - ERROR - [main.main_async:737] - Media task TTS_Scorpio failed: Error: Generic TTS Error for Scorpio: Session is closed
+2025-05-13 13:51:05,412 - INFO - [main.main_async:741] - Media task TikTokImage_Scorpio completed successfully. Result: D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\run_2025-05-13_172026\Scorpio\tikt
+2025-05-13 13:51:05,412 - INFO - [main.main_async:741] - Media task YouTubeImage_Scorpio completed successfully. Result: D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\run_2025-05-13_172026\Scorpio\yout
+2025-05-13 13:51:05,412 - ERROR - [main.main_async:737] - Media task TTS_Sagittarius failed: Error: Generic TTS Error for Sagittarius: Session is closed
+2025-05-13 13:51:05,412 - INFO - [main.main_async:741] - Media task TikTokImage_Sagittarius completed successfully. Result: D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\run_2025-05-13_172026\Sagittarius\
+2025-05-13 13:51:05,412 - INFO - [main.main_async:741] - Media task YouTubeImage_Sagittarius completed successfully. Result: D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\run_2025-05-13_172026\Sagittarius\
+2025-05-13 13:51:05,412 - ERROR - [main.main_async:737] - Media task TTS_Capricorn failed: Error: Generic TTS Error for Capricorn: Session is closed
+2025-05-13 13:51:05,412 - INFO - [main.main_async:741] - Media task TikTokImage_Capricorn completed successfully. Result: D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\run_2025-05-13_172026\Capricorn\ti
+2025-05-13 13:51:05,412 - INFO - [main.main_async:741] - Media task YouTubeImage_Capricorn completed successfully. Result: D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\run_2025-05-13_172026\Capricorn\yo
+2025-05-13 13:51:05,412 - ERROR - [main.main_async:737] - Media task TTS_Aquarius failed: Error: Generic TTS Error for Aquarius: Session is closed
+2025-05-13 13:51:05,412 - INFO - [main.main_async:741] - Media task TikTokImage_Aquarius completed successfully. Result: D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\run_2025-05-13_172026\Aquarius\tik
+2025-05-13 13:51:05,412 - INFO - [main.main_async:741] - Media task YouTubeImage_Aquarius completed successfully. Result: D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\run_2025-05-13_172026\Aquarius\you
+2025-05-13 13:51:05,412 - ERROR - [main.main_async:737] - Media task TTS_Pisces failed: Error: Generic TTS Error for Pisces: Session is closed
+2025-05-13 13:51:05,412 - INFO - [main.main_async:741] - Media task TikTokImage_Pisces completed successfully. Result: D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\run_2025-05-13_172026\Pisces\tikto
+2025-05-13 13:51:05,412 - INFO - [main.main_async:741] - Media task YouTubeImage_Pisces completed successfully. Result: D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\run_2025-05-13_172026\Pisces\youtu
+2025-05-13 13:51:05,412 - INFO - [main.main_async:742] - Media generation summary: 25 succeeded, 11 failed.
+2025-05-13 13:51:05,413 - INFO - [main.main_async:747] - --- Astrology Horoscope Generation Script Finished --- Run ID: 2025-05-13_172026 ---

@@ -1,0 +1,79 @@
+body {
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#stage {
+    position: relative; /* Crucial: Establishes positioning context for scenes */
+    width: 80vw;       /* Example width */
+    max-width: 800px;
+    aspect-ratio: 16 / 9; /* Maintain aspect ratio */
+    border: 2px solid #555;
+    margin: 20px auto;
+    overflow: hidden; /* Hide parts of layers sticking out */
+    background-color: #f0f0f0; /* Fallback background */
+}
+
+.scene-container {
+    position: absolute; /* Positions scenes relative to #stage */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;        /* Initially hidden */
+    visibility: hidden; /* Keep it out of accessibility tree when hidden */
+    transition: opacity 0.7s ease-in-out; /* Animation for fading */
+    /* background-color: rgba(255, 0, 0, 0.1); /* DEBUG: visualize scene container */
+}
+
+.scene-container.active {
+    opacity: 1;         /* Make active scene visible */
+    visibility: visible;
+}
+
+.scene-layer {
+    position: absolute; /* Positions layers relative to their .scene-container */
+    top: 0;             /* Default top/left */
+    left: 0;
+    width: 100%;        /* Default width/height */
+    height: 100%;
+    object-fit: cover; /* How image should resize (cover, contain, etc.) */
+    display: block; /* Ensure img behaves like a block */
+    /* background-color: rgba(0, 255, 0, 0.1); /* DEBUG: visualize layers */
+}
+
+/* --- Add CSS Animations for elements WITHIN scenes --- */
+/* Example: Make the sun pulse slightly */
+#day-sun {
+   /* You might apply animation via JS by adding a class */
+   animation: pulse 5s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+/* Example: Make the owl sway */
+#night-owl.active { /* Only animate when the night scene is active */
+    animation: sway 4s infinite ease-in-out alternate;
+    transform-origin: 50% 0%; /* Pivot from the top-center */
+}
+
+@keyframes sway {
+    from { transform: rotate(-3deg); }
+    to { transform: rotate(3deg); }
+}
+
+
+.controls {
+    margin-top: 15px;
+}
+
+button {
+    padding: 8px 15px;
+    margin: 0 5px;
+    cursor: pointer;
+}

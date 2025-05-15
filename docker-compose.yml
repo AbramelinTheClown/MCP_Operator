@@ -1,43 +1,13 @@
-# docker-compose.yml
 version: '3.8'
 
 services:
-
-  astrology-mcp:
+  nasa-images-mcp:
     build:
       context: .
-      dockerfile: Dockerfile.astrology
-    container_name: mcp_astrology_server # Friendly name
+      dockerfile: Dockerfile.nasa_images
     ports:
-      - "5001:5001"
-    environment:
-      - MCP_PORT=5001
-      - DEFAULT_LATITUDE=${DEFAULT_LATITUDE}
-      - DEFAULT_LONGITUDE=${DEFAULT_LONGITUDE}
-    restart: unless-stopped
-
-  # news-fetch-mcp: # Keep or remove based on your plans
-  #   ... (existing definition) ...
-  #   ports:
-  #     - "5002:5002"
-  #   environment:
-  #     - MCP_PORT=5002
-  #     - NEWS_API_KEY=${NEWS_API_KEY}
-  #   restart: unless-stopped
-
-  image-search-mcp:
-    build:
-      context: .
-      dockerfile: Dockerfile.image_search
-    container_name: mcp_image_search
-    ports:
-      - "5002:5002"
-    environment:
-      - MCP_PORT=5002
-      - GOOGLE_API_KEY=${GOOGLE_API_KEY}
-      - GOOGLE_CSE_ID=${GOOGLE_CSE_ID}
-    restart: unless-stopped
-
-# Define volumes if used
-# volumes:
-#   astrology_data: {}
+      - "3003:3003"
+    env_file:
+      - .env
+    volumes:
+      - ./src/mcp_tools/nasa_images:/app/src/mcp_tools/nasa_images

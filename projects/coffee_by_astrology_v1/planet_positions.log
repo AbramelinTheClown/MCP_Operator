@@ -1,0 +1,107 @@
+2025-05-13 01:23:41,248 - INFO - --- Starting Astrology Horoscope Generation Script ---
+2025-05-13 01:23:41,249 - INFO - Successfully loaded personality profile from: D:\AI\mcp_operator\projects\coffee_by_astrology_v1\prompt_style\lumina_alone.txt
+2025-05-13 01:23:41,250 - INFO - Skyfield loader initialized and ephemeris loaded from: D:\AI\mcp_operator\projects\coffee_by_astrology_v1\skyfield_data
+2025-05-13 01:23:41,292 - INFO - Run charts directory: D:\AI\mcp_operator\projects\coffee_by_astrology_v1\charts\planet_positions_2025-05-13_052341
+2025-05-13 01:23:41,292 - INFO - Run scripts output directory: D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\scripts_for_2025-05-13_052341
+2025-05-13 01:23:41,292 - INFO - Calculating planetary data for: 2025-05-13T05:23:41.249050+00:00
+2025-05-13 01:23:41,303 - INFO - Calculated planetary positions, signs, retrograde status, and aspects.
+2025-05-13 01:23:41,303 - INFO - Saving planetary data JSON files to D:\AI\mcp_operator\projects\coffee_by_astrology_v1\charts\planet_positions_2025-05-13_052341...
+2025-05-13 01:23:41,304 - INFO - Saved planet positions for Aries to D:\AI\mcp_operator\projects\coffee_by_astrology_v1\charts\planet_positions_2025-05-13_052341\planet_positions_2025-05-13_05-23-41_Aries.json
+2025-05-13 01:23:41,305 - INFO - Saved planet positions for Taurus to D:\AI\mcp_operator\projects\coffee_by_astrology_v1\charts\planet_positions_2025-05-13_052341\planet_positions_2025-05-13_05-23-41_Taurus.json
+2025-05-13 01:23:41,306 - INFO - Saved planet positions for Gemini to D:\AI\mcp_operator\projects\coffee_by_astrology_v1\charts\planet_positions_2025-05-13_052341\planet_positions_2025-05-13_05-23-41_Gemini.json
+2025-05-13 01:23:41,306 - INFO - Saved planet positions for Cancer to D:\AI\mcp_operator\projects\coffee_by_astrology_v1\charts\planet_positions_2025-05-13_052341\planet_positions_2025-05-13_05-23-41_Cancer.json
+2025-05-13 01:23:41,307 - INFO - Saved planet positions for Leo to D:\AI\mcp_operator\projects\coffee_by_astrology_v1\charts\planet_positions_2025-05-13_052341\planet_positions_2025-05-13_05-23-41_Leo.json
+2025-05-13 01:23:41,315 - INFO - Saved planet positions for Virgo to D:\AI\mcp_operator\projects\coffee_by_astrology_v1\charts\planet_positions_2025-05-13_052341\planet_positions_2025-05-13_05-23-41_Virgo.json
+2025-05-13 01:23:41,316 - INFO - Saved planet positions for Libra to D:\AI\mcp_operator\projects\coffee_by_astrology_v1\charts\planet_positions_2025-05-13_052341\planet_positions_2025-05-13_05-23-41_Libra.json
+2025-05-13 01:23:41,316 - INFO - Saved planet positions for Scorpio to D:\AI\mcp_operator\projects\coffee_by_astrology_v1\charts\planet_positions_2025-05-13_052341\planet_positions_2025-05-13_05-23-41_Scorpio.json
+2025-05-13 01:23:41,317 - INFO - Saved planet positions for Sagittarius to D:\AI\mcp_operator\projects\coffee_by_astrology_v1\charts\planet_positions_2025-05-13_052341\planet_positions_2025-05-13_05-23-41_Sagittarius.json
+2025-05-13 01:23:41,318 - INFO - Saved planet positions for Capricorn to D:\AI\mcp_operator\projects\coffee_by_astrology_v1\charts\planet_positions_2025-05-13_052341\planet_positions_2025-05-13_05-23-41_Capricorn.json
+2025-05-13 01:23:41,318 - INFO - Saved planet positions for Aquarius to D:\AI\mcp_operator\projects\coffee_by_astrology_v1\charts\planet_positions_2025-05-13_052341\planet_positions_2025-05-13_05-23-41_Aquarius.json
+2025-05-13 01:23:41,319 - INFO - Saved planet positions for Pisces to D:\AI\mcp_operator\projects\coffee_by_astrology_v1\charts\planet_positions_2025-05-13_052341\planet_positions_2025-05-13_05-23-41_Pisces.json
+2025-05-13 01:23:41,319 - INFO - JSON data files for all signs saved.
+2025-05-13 01:23:41,319 - INFO - Processing JSON files from D:\AI\mcp_operator\projects\coffee_by_astrology_v1\charts\planet_positions_2025-05-13_052341 to generate horoscopes...
+2025-05-13 01:23:41,320 - INFO - Processing JSON file: planet_positions_2025-05-13_05-23-41_Aquarius.json
+2025-05-13 01:23:41,321 - INFO - Attempting to generate horoscope with Ollama...
+2025-05-13 01:24:07,879 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2025-05-13 01:24:07,880 - INFO - Ollama API call completed.
+2025-05-13 01:24:07,880 - INFO - Successfully received response from Ollama.
+2025-05-13 01:24:07,881 - INFO - Attempting to save file to: D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\scripts_for_2025-05-13_052341\horoscope_Aquarius_2025-05-13.txt
+2025-05-13 01:24:07,881 - INFO - Successfully saved file: D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\scripts_for_2025-05-13_052341\horoscope_Aquarius_2025-05-13.txt
+2025-05-13 01:24:07,881 - INFO - Processing JSON file: planet_positions_2025-05-13_05-23-41_Aries.json
+2025-05-13 01:24:07,882 - INFO - Attempting to generate horoscope with Ollama...
+2025-05-13 01:24:21,893 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2025-05-13 01:24:21,894 - INFO - Ollama API call completed.
+2025-05-13 01:24:21,894 - INFO - Successfully received response from Ollama.
+2025-05-13 01:24:21,894 - INFO - Attempting to save file to: D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\scripts_for_2025-05-13_052341\horoscope_Aries_2025-05-13.txt
+2025-05-13 01:24:21,895 - INFO - Successfully saved file: D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\scripts_for_2025-05-13_052341\horoscope_Aries_2025-05-13.txt
+2025-05-13 01:24:21,895 - INFO - Processing JSON file: planet_positions_2025-05-13_05-23-41_Cancer.json
+2025-05-13 01:24:21,896 - INFO - Attempting to generate horoscope with Ollama...
+2025-05-13 01:24:36,318 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2025-05-13 01:24:36,318 - INFO - Ollama API call completed.
+2025-05-13 01:24:36,319 - INFO - Successfully received response from Ollama.
+2025-05-13 01:24:36,319 - INFO - Attempting to save file to: D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\scripts_for_2025-05-13_052341\horoscope_Cancer_2025-05-13.txt
+2025-05-13 01:24:36,320 - INFO - Successfully saved file: D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\scripts_for_2025-05-13_052341\horoscope_Cancer_2025-05-13.txt
+2025-05-13 01:24:36,320 - INFO - Processing JSON file: planet_positions_2025-05-13_05-23-41_Capricorn.json
+2025-05-13 01:24:36,320 - INFO - Attempting to generate horoscope with Ollama...
+2025-05-13 01:24:49,427 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2025-05-13 01:24:49,428 - INFO - Ollama API call completed.
+2025-05-13 01:24:49,428 - INFO - Successfully received response from Ollama.
+2025-05-13 01:24:49,428 - INFO - Attempting to save file to: D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\scripts_for_2025-05-13_052341\horoscope_Capricorn_2025-05-13.txt
+2025-05-13 01:24:49,429 - INFO - Successfully saved file: D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\scripts_for_2025-05-13_052341\horoscope_Capricorn_2025-05-13.txt
+2025-05-13 01:24:49,429 - INFO - Processing JSON file: planet_positions_2025-05-13_05-23-41_Gemini.json
+2025-05-13 01:24:49,430 - INFO - Attempting to generate horoscope with Ollama...
+2025-05-13 01:25:01,485 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2025-05-13 01:25:01,485 - INFO - Ollama API call completed.
+2025-05-13 01:25:01,485 - INFO - Successfully received response from Ollama.
+2025-05-13 01:25:01,486 - INFO - Attempting to save file to: D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\scripts_for_2025-05-13_052341\horoscope_Gemini_2025-05-13.txt
+2025-05-13 01:25:01,529 - INFO - Successfully saved file: D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\scripts_for_2025-05-13_052341\horoscope_Gemini_2025-05-13.txt
+2025-05-13 01:25:01,529 - INFO - Processing JSON file: planet_positions_2025-05-13_05-23-41_Leo.json
+2025-05-13 01:25:01,529 - INFO - Attempting to generate horoscope with Ollama...
+2025-05-13 01:25:14,560 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2025-05-13 01:25:14,561 - INFO - Ollama API call completed.
+2025-05-13 01:25:14,561 - INFO - Successfully received response from Ollama.
+2025-05-13 01:25:14,561 - INFO - Attempting to save file to: D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\scripts_for_2025-05-13_052341\horoscope_Leo_2025-05-13.txt
+2025-05-13 01:25:14,562 - INFO - Successfully saved file: D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\scripts_for_2025-05-13_052341\horoscope_Leo_2025-05-13.txt
+2025-05-13 01:25:14,562 - INFO - Processing JSON file: planet_positions_2025-05-13_05-23-41_Libra.json
+2025-05-13 01:25:14,563 - INFO - Attempting to generate horoscope with Ollama...
+2025-05-13 01:25:29,801 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2025-05-13 01:25:29,802 - INFO - Ollama API call completed.
+2025-05-13 01:25:29,802 - INFO - Successfully received response from Ollama.
+2025-05-13 01:25:29,802 - INFO - Attempting to save file to: D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\scripts_for_2025-05-13_052341\horoscope_Libra_2025-05-13.txt
+2025-05-13 01:25:29,803 - INFO - Successfully saved file: D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\scripts_for_2025-05-13_052341\horoscope_Libra_2025-05-13.txt
+2025-05-13 01:25:29,803 - INFO - Processing JSON file: planet_positions_2025-05-13_05-23-41_Pisces.json
+2025-05-13 01:25:29,803 - INFO - Attempting to generate horoscope with Ollama...
+2025-05-13 01:25:47,287 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2025-05-13 01:25:47,288 - INFO - Ollama API call completed.
+2025-05-13 01:25:47,288 - INFO - Successfully received response from Ollama.
+2025-05-13 01:25:47,288 - INFO - Attempting to save file to: D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\scripts_for_2025-05-13_052341\horoscope_Pisces_2025-05-13.txt
+2025-05-13 01:25:47,289 - INFO - Successfully saved file: D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\scripts_for_2025-05-13_052341\horoscope_Pisces_2025-05-13.txt
+2025-05-13 01:25:47,289 - INFO - Processing JSON file: planet_positions_2025-05-13_05-23-41_Sagittarius.json
+2025-05-13 01:25:47,290 - INFO - Attempting to generate horoscope with Ollama...
+2025-05-13 01:26:06,323 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2025-05-13 01:26:06,324 - INFO - Ollama API call completed.
+2025-05-13 01:26:06,324 - INFO - Successfully received response from Ollama.
+2025-05-13 01:26:06,324 - INFO - Attempting to save file to: D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\scripts_for_2025-05-13_052341\horoscope_Sagittarius_2025-05-13.txt
+2025-05-13 01:26:06,325 - INFO - Successfully saved file: D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\scripts_for_2025-05-13_052341\horoscope_Sagittarius_2025-05-13.txt
+2025-05-13 01:26:06,325 - INFO - Processing JSON file: planet_positions_2025-05-13_05-23-41_Scorpio.json
+2025-05-13 01:26:06,325 - INFO - Attempting to generate horoscope with Ollama...
+2025-05-13 01:26:20,228 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2025-05-13 01:26:20,228 - INFO - Ollama API call completed.
+2025-05-13 01:26:20,228 - INFO - Successfully received response from Ollama.
+2025-05-13 01:26:20,229 - INFO - Attempting to save file to: D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\scripts_for_2025-05-13_052341\horoscope_Scorpio_2025-05-13.txt
+2025-05-13 01:26:20,229 - INFO - Successfully saved file: D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\scripts_for_2025-05-13_052341\horoscope_Scorpio_2025-05-13.txt
+2025-05-13 01:26:20,229 - INFO - Processing JSON file: planet_positions_2025-05-13_05-23-41_Taurus.json
+2025-05-13 01:26:20,230 - INFO - Attempting to generate horoscope with Ollama...
+2025-05-13 01:26:34,088 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2025-05-13 01:26:34,088 - INFO - Ollama API call completed.
+2025-05-13 01:26:34,088 - INFO - Successfully received response from Ollama.
+2025-05-13 01:26:34,089 - INFO - Attempting to save file to: D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\scripts_for_2025-05-13_052341\horoscope_Taurus_2025-05-13.txt
+2025-05-13 01:26:34,089 - INFO - Successfully saved file: D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\scripts_for_2025-05-13_052341\horoscope_Taurus_2025-05-13.txt
+2025-05-13 01:26:34,089 - INFO - Processing JSON file: planet_positions_2025-05-13_05-23-41_Virgo.json
+2025-05-13 01:26:34,090 - INFO - Attempting to generate horoscope with Ollama...
+2025-05-13 01:26:51,621 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2025-05-13 01:26:51,621 - INFO - Ollama API call completed.
+2025-05-13 01:26:51,621 - INFO - Successfully received response from Ollama.
+2025-05-13 01:26:51,622 - INFO - Attempting to save file to: D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\scripts_for_2025-05-13_052341\horoscope_Virgo_2025-05-13.txt
+2025-05-13 01:26:51,665 - INFO - Successfully saved file: D:\AI\mcp_operator\projects\coffee_by_astrology_v1\scripts_output\scripts_for_2025-05-13_052341\horoscope_Virgo_2025-05-13.txt
+2025-05-13 01:26:51,665 - INFO - --- Astrology Horoscope Generation Script Finished ---

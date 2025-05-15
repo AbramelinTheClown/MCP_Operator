@@ -26,10 +26,11 @@ transformers
 # As per Orpheus docs, pinning vllm might be necessary due to bugs:
 # vllm==0.7.3 # Uncomment if you encounter issues with the latest vllm from orpheus-speech
 datasets
-
+aiohttp
 wandb 
 accelerate 
 trl 
+tenacity 
 # Add any other core dependencies your mcp_operator project needs
 # (e.g., logging libraries, configuration parsing libraries, etc.)
 # example_core_lib

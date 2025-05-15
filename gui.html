@@ -1,0 +1,1462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facial Animation Studio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .canvas-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: #2d3748;
+            background-image: 
+                linear-gradient(#4a5568 1px, transparent 1px),
+                linear-gradient(90deg, #4a5568 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        
+        .canvas-wrapper {
+            position: relative;
+            width: 500px;
+            height: 500px;
+            margin: 0 auto;
+            border: 2px solid #718096;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .layer-item {
+            transition: all 0.2s ease;
+        }
+        
+        .layer-item:hover {
+            background-color: #4a5568;
+        }
+        
+        .layer-item.active {
+            background-color: #4299e1;
+        }
+        
+        .timeline-track {
+            height: 40px;
+            background-color: #2d3748;
+            border-top: 1px solid #4a5568;
+        }
+        
+        .keyframe {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #4299e1;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
+        
+        .keyframe.active {
+            background-color: #ebf8ff;
+            transform: translateY(-50%) scale(1.3);
+        }
+        
+        .draggable {
+            cursor: move;
+            user-select: none;
+        }
+        
+        .resizable {
+            resize: both;
+            overflow: hidden;
+        }
+        
+        .face-guide {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            border: 1px dashed rgba(255, 255, 255, 0.3);
+            pointer-events: none;
+        }
+        
+        .layer-content {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal-content {
+            background-color: #2d3748;
+            padding: 20px;
+            border-radius: 8px;
+            width: 400px;
+            max-width: 90%;
+        }
+        
+        .keyframe-properties {
+            display: none;
+            position: absolute;
+            background-color: #2d3748;
+            border: 1px solid #4a5568;
+            padding: 10px;
+            border-radius: 4px;
+            z-index: 100;
+            width: 200px;
+        }
+
+        /* Safe Frame Toggle Switch */
+        #safe-frame-toggle-container {
+            z-index: 50; /* Ensure it's above canvas elements but below modals */
+        }
+        /* We will control the dot and track color/position via JavaScript for 3 states */
+
+        /* Safe Frame Overlays */
+        .safe-frame-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            pointer-events: none; /* So it doesn't interfere with layer interactions */
+            box-sizing: border-box;
+        }
+
+        .youtube-safe-frame {
+            border: 2px dashed rgba(255, 82, 82, 0.75); /* YouTube Red */
+        }
+
+        .tiktok-safe-frame {
+            border: 2px dashed rgba(37, 244, 238, 0.75); /* TikTok Cyan */
+        }
+    </style>
+</head>
+<body class="bg-gray-800 text-gray-200 h-screen flex flex-col">
+    <!-- Header -->
+    <header class="bg-gray-900 py-3 px-4 flex justify-between items-center border-b border-gray-700">
+        <h1 class="text-xl font-bold text-blue-400 flex items-center">
+            <i class="fas fa-smile-beam mr-2"></i> Facial Animation Studio
+        </h1>
+        <div class="flex space-x-2">
+            <button id="export-btn" class="bg-blue-600 hover:bg-blue-700 px-4 py-1 rounded flex items-center">
+                <i class="fas fa-file-export mr-2"></i> Export
+            </button>
+            <button id="import-btn" class="bg-green-600 hover:bg-green-700 px-4 py-1 rounded flex items-center">
+                <i class="fas fa-file-import mr-2"></i> Import
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="flex flex-1 overflow-hidden">
+        <!-- Tools Panel -->
+        <div class="w-16 bg-gray-900 border-r border-gray-700 flex flex-col items-center py-4 space-y-4">
+            <button id="select-tool" class="tool-btn active" title="Select Tool (V)">
+                <i class="fas fa-mouse-pointer"></i>
+            </button>
+            <button id="move-tool" class="tool-btn" title="Move Tool (M)">
+                <i class="fas fa-arrows-alt"></i>
+            </button>
+            <button id="draw-tool" class="tool-btn" title="Draw Tool (B)">
+                <i class="fas fa-pencil-alt"></i>
+            </button>
+            <button id="text-tool" class="tool-btn" title="Text Tool (T)">
+                <i class="fas fa-font"></i>
+            </button>
+            <button id="shape-tool" class="tool-btn" title="Shape Tool (U)">
+                <i class="fas fa-square"></i>
+            </button>
+            <div class="border-t border-gray-700 w-8 my-2"></div>
+            <button id="add-layer" class="tool-btn" title="Add Layer (Ctrl+Shift+N)">
+                <i class="fas fa-layer-plus"></i>
+            </button>
+             <button id="add-layer" class="tool-btn" title="Add Layer (Ctrl+Shift+N)">
+                <i class="fas fa-layer-plus"></i>
+            </button>
+            <button id="delete-layer" class="tool-btn" title="Delete Layer (Delete)">
+                <i class="fas fa-trash-alt"></i>
+            </button>
+            <button id="add-keyframe" class="tool-btn" title="Add Keyframe (K)">
+                <i class="fas fa-key"></i>
+            </button>
+        </div>
+
+        <!-- Canvas Area -->
+        <div class="flex-1 flex flex-col">
+            <div class="canvas-wrapper">
+                <div class="canvas-wrapper relative"> <div id="safe-frame-toggle-container" class="absolute top-4 right-4 z-50 bg-gray-800/80 backdrop-blur-sm p-2 rounded-lg shadow-xl text-gray-200 select-none border border-gray-700">
+                <div class="flex items-center cursor-pointer" id="safe-frame-clickable-area">
+                    <span class="mr-3 text-sm font-medium">Safe Frame:</span>
+                        <div class="relative">
+                            <div id="safe-frame-track" class="switch-track block bg-gray-600 w-14 h-8 rounded-full transition-colors duration-200 ease-in-out"></div>
+                            <div id="safe-frame-dot" class="dot absolute left-1 top-1 bg-white w-6 h-6 rounded-full transition-all duration-200 ease-in-out shadow"></div>
+                        </div>
+                        <span id="safe-frame-label" class="ml-3 text-sm font-semibold w-20 text-left min-w-[5rem]">None</span>
+                        </div>
+                    </div>
+                    <div class="canvas-container" id="canvas-container">
+                        <div class="face-guide" id="face-guide" style="width: 300px; height: 400px;"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Timeline -->
+            <div class="bg-gray-900 border-t border-gray-700 p-2">
+                <div class="flex items-center mb-2">
+                    <button id="play-btn" class="bg-blue-600 hover:bg-blue-700 px-3 py-1 rounded mr-2">
+                        <i class="fas fa-play"></i>
+                    </button>
+                    <button id="stop-btn" class="bg-gray-700 hover:bg-gray-600 px-3 py-1 rounded mr-4">
+                        <i class="fas fa-stop"></i>
+                    </button>
+                    <input type="range" id="timeline-scrubber" class="flex-1" min="0" max="100" value="0">
+                    <span id="current-time" class="ml-2 w-16 text-center">0:00</span>
+                </div>
+                <div class="timeline-track" id="timeline-track">
+                    <!-- Keyframes will be added here dynamically -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Layers Panel -->
+        <div class="w-64 bg-gray-900 border-l border-gray-700 flex flex-col">
+            <div class="p-3 border-b border-gray-700 flex justify-between items-center">
+                <h2 class="font-semibold">Layers</h2>
+                <button id="layer-settings" class="text-gray-400 hover:text-white">
+                    <i class="fas fa-cog"></i>
+                </button>
+            </div>
+            <div class="flex-1 overflow-y-auto" id="layers-list">
+                <!-- Layers will be added here dynamically -->
+                <div class="text-gray-500 text-center py-10 px-4">
+                    <i class="fas fa-layer-group text-3xl mb-2"></i>
+                    <p>No layers yet. Click the + button to add one.</p>
+                </div>
+            </div>
+            <div class="p-3 border-t border-gray-700">
+                <div class="flex justify-between items-center mb-2">
+                    <span class="text-sm">Opacity</span>
+                    <span id="opacity-value" class="text-sm">100%</span>
+                </div>
+                <input type="range" id="opacity-slider" class="w-full" min="0" max="100" value="100">
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Layer Modal -->
+    <div id="add-layer-modal" class="modal">
+        <div class="modal-content">
+            <h3 class="text-lg font-bold mb-4">Add New Layer</h3>
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-sm mb-1">Layer Name</label>
+                    <input type="text" id="layer-name" class="w-full bg-gray-700 border border-gray-600 rounded px-3 py-1">
+                </div>
+                <div>
+                    <label class="block text-sm mb-1">Layer Type</label>
+                    <select id="layer-type" class="w-full bg-gray-700 border border-gray-600 rounded px-3 py-1">
+                        <option value="image">Image (PNG/JPG)</option>
+                        <option value="svg">SVG</option>
+                        <option value="shape">Shape</option>
+                        <option value="text">Text</option>
+                    </select>
+                </div>
+                <div id="image-upload-container">
+                    <label class="block text-sm mb-1">Upload Image</label>
+                    <input type="file" id="layer-image" accept=".png,.jpg,.jpeg,.svg" class="w-full">
+                </div>
+                <div id="svg-code-container" class="hidden">
+                    <label class="block text-sm mb-1">SVG Code</label>
+                    <textarea id="svg-code" class="w-full bg-gray-700 border border-gray-600 rounded px-3 py-1 h-32"></textarea>
+                </div>
+                <div class="flex justify-end space-x-2">
+                    <button id="cancel-add-layer" class="px-4 py-1 rounded bg-gray-600 hover:bg-gray-500">Cancel</button>
+                    <button id="confirm-add-layer" class="px-4 py-1 rounded bg-blue-600 hover:bg-blue-500">Add Layer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Keyframe Properties Panel -->
+    <div id="keyframe-properties" class="keyframe-properties">
+        <div class="mb-2">
+            <label class="block text-xs">Time (seconds)</label>
+            <input type="number" id="keyframe-time" class="w-full bg-gray-700 border border-gray-600 rounded px-2 py-1 text-xs" step="0.1">
+        </div>
+        <div class="mb-2">
+            <label class="block text-xs">Easing</label>
+            <select id="keyframe-easing" class="w-full bg-gray-700 border border-gray-600 rounded px-2 py-1 text-xs">
+                <option value="linear">Linear</option>
+                <option value="ease-in">Ease In</option>
+                <option value="ease-out">Ease Out</option>
+                <option value="ease-in-out">Ease In Out</option>
+            </select>
+        </div>
+        <div class="flex justify-between">
+            <button id="delete-keyframe" class="px-2 py-1 text-xs bg-red-600 hover:bg-red-500 rounded">Delete</button>
+            <button id="update-keyframe" class="px-2 py-1 text-xs bg-blue-600 hover:bg-blue-500 rounded">Update</button>
+        </div>
+    </div>
+
+    <!-- Hidden file input for import/export -->
+    <input type="file" id="file-input" class="hidden" accept=".json">
+    <a id="export-link" class="hidden"></a>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // App state
+            const state = {
+            layers: [],
+            activeLayerIndex: -1,
+            currentTool: 'select',
+            currentTime: 0,
+            isPlaying: false,
+            frameRate: 24,
+            duration: 10, // seconds
+            canvasSize: { width: 500, height: 500 }, // Ensure this matches your .canvas-wrapper
+            selectedKeyframe: null,
+            animationInterval: null,
+            // New state for safe frames
+            safeFrameModes: ['none', 'youtube', 'tiktok'],
+            currentSafeFrameIndex: 0, // 0: none, 1: youtube, 2: tiktok
+        };
+
+            // DOM elements
+            
+            const safeFrameToggleContainer = document.getElementById('safe-frame-toggle-container');
+            const safeFrameDot = document.getElementById('safe-frame-dot');
+            const safeFrameTrack = safeFrameToggleContainer.querySelector('.switch-track');
+            const safeFrameLabel = document.getElementById('safe-frame-label');
+            const canvasContainer = document.getElementById('canvas-container');
+            const layersList = document.getElementById('layers-list');
+            const timelineTrack = document.getElementById('timeline-track');
+            const timelineScrubber = document.getElementById('timeline-scrubber');
+            const currentTimeDisplay = document.getElementById('current-time');
+            const opacitySlider = document.getElementById('opacity-slider');
+            const opacityValue = document.getElementById('opacity-value');
+            const faceGuide = document.getElementById('face-guide');
+            const fileInput = document.getElementById('file-input');
+            const exportLink = document.getElementById('export-link');
+            
+            // Modal elements
+            const addLayerModal = document.getElementById('add-layer-modal');
+            const layerTypeSelect = document.getElementById('layer-type');
+            const imageUploadContainer = document.getElementById('image-upload-container');
+            const svgCodeContainer = document.getElementById('svg-code-container');
+            const cancelAddLayerBtn = document.getElementById('cancel-add-layer');
+            const confirmAddLayerBtn = document.getElementById('confirm-add-layer');
+            
+            // Keyframe properties
+            const keyframeProperties = document.getElementById('keyframe-properties');
+            const keyframeTimeInput = document.getElementById('keyframe-time');
+            const keyframeEasingSelect = document.getElementById('keyframe-easing');
+            const deleteKeyframeBtn = document.getElementById('delete-keyframe');
+            const updateKeyframeBtn = document.getElementById('update-keyframe');
+
+            // Tool buttons
+            const toolButtons = {
+                select: document.getElementById('select-tool'),
+                move: document.getElementById('move-tool'),
+                draw: document.getElementById('draw-tool'),
+                text: document.getElementById('text-tool'),
+                shape: document.getElementById('shape-tool')
+            };
+
+            // Initialize
+            initEventListeners();
+            createDefaultFaceGuide();
+
+            function initEventListeners() {
+                // Tool selection
+                Object.keys(toolButtons).forEach(tool => {
+                    toolButtons[tool].addEventListener('click', () => {
+                        setActiveTool(tool);
+                    });
+                });
+
+                    // Safe Frame Toggle
+                safeFrameToggleContainer.addEventListener('click', cycleSafeFrameMode);
+
+                // Keyboard shortcuts
+                document.addEventListener('keydown', handleKeyboardShortcuts);
+
+                // Initialize safe frame display on load
+                updateSafeFrameVisuals();
+
+                // Layer actions
+                document.getElementById('add-layer').addEventListener('click', showAddLayerModal);
+                document.getElementById('delete-layer').addEventListener('click', deleteActiveLayer);
+                document.getElementById('add-keyframe').addEventListener('click', addKeyframeAtCurrentTime);
+                
+                // Timeline controls
+                document.getElementById('play-btn').addEventListener('click', togglePlayback);
+                document.getElementById('stop-btn').addEventListener('click', stopPlayback);
+                timelineScrubber.addEventListener('input', updateCurrentTime);
+                
+                // Opacity slider
+                opacitySlider.addEventListener('input', updateLayerOpacity);
+                
+                // Import/export
+                document.getElementById('export-btn').addEventListener('click', exportProject);
+                document.getElementById('import-btn').addEventListener('click', () => fileInput.click());
+                fileInput.addEventListener('change', importProject);
+                
+                // Modal events
+                layerTypeSelect.addEventListener('change', updateLayerTypeFields);
+                cancelAddLayerBtn.addEventListener('click', hideAddLayerModal);
+                confirmAddLayerBtn.addEventListener('click', confirmAddLayer);
+                
+                // Keyframe properties
+                deleteKeyframeBtn.addEventListener('click', deleteSelectedKeyframe);
+                updateKeyframeBtn.addEventListener('click', updateSelectedKeyframe);
+                
+                // Keyboard shortcuts
+                document.addEventListener('keydown', handleKeyboardShortcuts);
+            }
+
+            function showAddLayerModal() {
+                addLayerModal.style.display = 'flex';
+                document.getElementById('layer-name').value = `Layer ${state.layers.length + 1}`;
+                document.getElementById('layer-type').value = 'image';
+                updateLayerTypeFields();
+            }
+
+            function hideAddLayerModal() {
+                addLayerModal.style.display = 'none';
+            }
+
+            function updateLayerTypeFields() {
+                const layerType = layerTypeSelect.value;
+                
+                if (layerType === 'image') {
+                    imageUploadContainer.classList.remove('hidden');
+                    svgCodeContainer.classList.add('hidden');
+                } else if (layerType === 'svg') {
+                    imageUploadContainer.classList.add('hidden');
+                    svgCodeContainer.classList.remove('hidden');
+                    document.getElementById('svg-code').value = '<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">\n  <!-- Add your SVG elements here -->\n</svg>';
+                } else {
+                    imageUploadContainer.classList.add('hidden');
+                    svgCodeContainer.classList.add('hidden');
+                }
+            }
+
+            function confirmAddLayer() {
+                const layerName = document.getElementById('layer-name').value;
+                const layerType = layerTypeSelect.value;
+                
+                if (layerType === 'image') {
+                    const fileInput = document.getElementById('layer-image');
+                    if (fileInput.files.length > 0) {
+                        const file = fileInput.files[0];
+                        const reader = new FileReader();
+                        
+                        reader.onload = function(e) {
+                            createNewLayer(layerName, layerType, e.target.result);
+                            hideAddLayerModal();
+                        };
+                        
+                        reader.readAsDataURL(file);
+                    } else {
+                        alert('Please select an image file');
+                    }
+                } else if (layerType === 'svg') {
+                    const svgCode = document.getElementById('svg-code').value;
+                    createNewLayer(layerName, layerType, svgCode);
+                    hideAddLayerModal();
+                } else {
+                    createNewLayer(layerName, layerType, null);
+                    hideAddLayerModal();
+                }
+            }
+
+            function createNewLayer(name, type, content) {
+                const layerId = `layer-${Date.now()}`;
+                
+                // Create layer object
+                const newLayer = {
+                    id: layerId,
+                    name: name,
+                    type: type,
+                    visible: true,
+                    locked: false,
+                    opacity: 1,
+                    zIndex: state.layers.length,
+                    content: content,
+                    keyframes: [],
+                    position: { x: 100, y: 100 },
+                    size: { width: 100, height: 100 },
+                    rotation: 0,
+                    scale: { x: 1, y: 1 }
+                };
+                
+                state.layers.push(newLayer);
+                state.activeLayerIndex = state.layers.length - 1;
+                
+                // Create DOM elements
+                createLayerDOM(newLayer);
+                updateLayersList();
+            }
+
+            function setActiveTool(tool) {
+                state.currentTool = tool;
+                
+                // Update UI
+                Object.values(toolButtons).forEach(btn => btn.classList.remove('active'));
+                toolButtons[tool].classList.add('active');
+                
+                // TODO: Implement tool functionality
+                console.log(`Active tool: ${tool}`);
+            }
+
+            function cycleSafeFrameMode() {
+            state.currentSafeFrameIndex = (state.currentSafeFrameIndex + 1) % state.safeFrameModes.length;
+            updateSafeFrameVisuals();
+        }
+
+        function updateSafeFrameVisuals() {
+            const currentMode = state.safeFrameModes[state.currentSafeFrameIndex];
+
+            // Update toggle switch appearance
+            switch (currentMode) {
+                case 'none':
+                    safeFrameLabel.textContent = 'None';
+                    safeFrameDot.style.transform = 'translateX(0px)';
+                    safeFrameDot.style.backgroundColor = 'white';
+                    safeFrameTrack.style.backgroundColor = '#4A5568'; // Tailwind gray-600
+                    break;
+                case 'youtube':
+                    safeFrameLabel.textContent = 'YouTube';
+                    // Dot is left-1 (4px). Track w-14 (56px), Dot w-6 (24px).
+                    // Travel distance for dot's left edge: 56px (track) - 24px (dot) - 4px (left-1) - 4px (equiv. right-1 for centering) = 24px
+                    // Or, to move dot to the right edge: Track width - Dot width = 56px - 24px = 32px.
+                    // Since dot is already left-1 (4px), translateX by (32px - 4px) = 28px.
+                    // Or, if translateX(100%) of its own width (24px) from left-1 (4px) is desired, then 4px+24px = 28px.
+                    safeFrameDot.style.transform = 'translateX(28px)'; // (56px track - 24px dot - 4px left offset)
+                    safeFrameDot.style.backgroundColor = 'rgba(255, 82, 82, 0.9)';
+                    safeFrameTrack.style.backgroundColor = 'rgba(255, 82, 82, 0.5)';
+                    break;
+                case 'tiktok':
+                    safeFrameLabel.textContent = 'TikTok';
+                    safeFrameDot.style.transform = 'translateX(28px)'; // Same "on" position as YouTube
+                    safeFrameDot.style.backgroundColor = 'rgba(37, 244, 238, 0.9)';
+                    safeFrameTrack.style.backgroundColor = 'rgba(37, 244, 238, 0.5)';
+                    break;
+            }
+            drawSafeFrameOverlay(currentMode);
+        }
+
+        function drawSafeFrameOverlay(mode) {
+            // Remove existing safe frame overlays first
+            const existingOverlays = canvasContainer.querySelectorAll('.safe-frame-overlay');
+            existingOverlays.forEach(overlay => overlay.remove());
+
+            if (mode === 'none') {
+                return; // No overlay for 'none'
+            }
+
+            const containerWidth = state.canvasSize.width;
+            const containerHeight = state.canvasSize.height;
+            let frameWidth, frameHeight;
+            let overlay = document.createElement('div');
+            overlay.classList.add('safe-frame-overlay');
+
+            if (mode === 'youtube') { // 16:9 aspect ratio
+                overlay.classList.add('youtube-safe-frame');
+                const aspectRatio = 16 / 9;
+                if ((containerWidth / containerHeight) > aspectRatio) { // Container is wider than 16:9 (pillarbox for frame)
+                    frameHeight = containerHeight;
+                    frameWidth = frameHeight * aspectRatio;
+                } else { // Container is taller or equal to 16:9 (letterbox for frame)
+                    frameWidth = containerWidth;
+                    frameHeight = frameWidth / aspectRatio;
+                }
+            } else if (mode === 'tiktok') { // 9:16 aspect ratio
+                overlay.classList.add('tiktok-safe-frame');
+                const aspectRatio = 9 / 16;
+                if ((containerWidth / containerHeight) > aspectRatio) { // Container is wider than 9:16
+                    frameHeight = containerHeight;
+                    frameWidth = frameHeight * aspectRatio;
+                } else { // Container is taller or equal to 9:16
+                    frameWidth = containerWidth;
+                    frameHeight = frameWidth / aspectRatio;
+                }
+            }
+
+            overlay.style.width = `${Math.round(frameWidth)}px`;
+            overlay.style.height = `${Math.round(frameHeight)}px`;
+            canvasContainer.appendChild(overlay);
+        }
+        
+            // Center the overlay   }
+
+        // Make sure to call updateSafeFrameVisuals() at the end of your DOMContentLoaded,
+        // or within initEventListeners as done above, to set the initial state.
+
+
+
+            function createDefaultFaceGuide() {
+                // Create facial feature guides
+                const features = [
+                    { type: 'circle', className: 'eye-guide', top: '30%', left: '30%', width: '10%', height: '5%' },
+                    { type: 'circle', className: 'eye-guide', top: '30%', left: '70%', width: '10%', height: '5%' },
+                    { type: 'line', className: 'mouth-guide', top: '65%', left: '35%', width: '30%', height: '2%' }
+                ];
+                
+                features.forEach(feat => {
+                    const el = document.createElement('div');
+                    el.className = `absolute ${feat.className} border border-dashed border-white opacity-20`;
+                    el.style.top = feat.top;
+                    el.style.left = feat.left;
+                    el.style.width = feat.width;
+                    el.style.height = feat.height;
+                    if (feat.type === 'circle') el.style.borderRadius = '50%';
+                    
+                    faceGuide.appendChild(el);
+                });
+            }
+
+            function createLayerDOM(layer) {
+                // Create layer element in canvas
+                const layerEl = document.createElement('div');
+                layerEl.id = layer.id;
+                layerEl.className = 'absolute draggable resizable bg-blue-500 opacity-80 border border-blue-300';
+                layerEl.style.width = `${layer.size.width}px`;
+                layerEl.style.height = `${layer.size.height}px`;
+                layerEl.style.left = `${layer.position.x}px`;
+                layerEl.style.top = `${layer.position.y}px`;
+                layerEl.style.zIndex = layer.zIndex;
+                layerEl.style.transform = `rotate(${layer.rotation}deg) scale(${layer.scale.x}, ${layer.scale.y})`;
+                
+                // Add layer content based on type
+                let contentHTML = '';
+                if (layer.type === 'image') {
+                    contentHTML = `<img src="${layer.content}" class="layer-content" draggable="false">`;
+                } else if (layer.type === 'svg') {
+                    contentHTML = layer.content;
+                } else if (layer.type === 'text') {
+                    contentHTML = `<div class="layer-content flex items-center justify-center text-white">${layer.name}</div>`;
+                } else {
+                    contentHTML = `<div class="layer-content bg-blue-400"></div>`;
+                }
+                
+                // Add layer controls
+                layerEl.innerHTML = `
+                    <div class="absolute top-0 left-0 right-0 h-6 bg-blue-600 flex justify-between items-center px-1 cursor-move">
+                        <span class="text-xs truncate">${layer.name}</span>
+                        <div class="flex space-x-1">
+                            <button class="layer-eye-btn text-xs hover:text-white">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                            <button class="layer-lock-btn text-xs hover:text-white">
+                                <i class="fas fa-lock"></i>
+                            </button>
+                        </div>
+                    </div>
+                    ${contentHTML}
+                `;
+                
+                // Add event listeners
+                const eyeBtn = layerEl.querySelector('.layer-eye-btn');
+                const lockBtn = layerEl.querySelector('.layer-lock-btn');
+                
+                eyeBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    toggleLayerVisibility(state.activeLayerIndex);
+                });
+                
+                lockBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    toggleLayerLock(state.activeLayerIndex);
+                });
+                
+                // Make draggable and resizable
+                makeDraggable(layerEl, layer);
+                makeResizable(layerEl, layer);
+                
+                canvasContainer.appendChild(layerEl);
+                
+                // Add transform controls if this is an SVG layer
+                if (layer.type === 'svg') {
+                    addSVGTransformControls(layerEl, layer);
+                }
+            }
+
+            function addSVGTransformControls(layerEl, layer) {
+                const svgElement = layerEl.querySelector('svg');
+                if (!svgElement) return;
+                
+                // Make SVG content non-draggable
+                svgElement.style.pointerEvents = 'none';
+                
+                // Add transform controls
+                const controlsHTML = `
+                    <div class="transform-controls absolute bottom-0 right-0 w-16 h-16 pointer-events-none">
+                        <div class="absolute bottom-0 right-0 w-4 h-4 bg-blue-400 rounded-full cursor-nwse-resize" id="scale-control"></div>
+                        <div class="absolute top-0 right-0 w-4 h-4 bg-blue-400 rounded-full cursor-nesw-resize" id="rotate-control"></div>
+                    </div>
+                `;
+                
+                layerEl.insertAdjacentHTML('beforeend', controlsHTML);
+                
+                // Scale control
+                const scaleControl = layerEl.querySelector('#scale-control');
+                scaleControl.addEventListener('mousedown', initScale);
+                
+                function initScale(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    const startX = e.clientX;
+                    const startY = e.clientY;
+                    const startWidth = layer.size.width;
+                    const startHeight = layer.size.height;
+                    
+                    function scale(e) {
+                        const deltaX = e.clientX - startX;
+                        const deltaY = e.clientY - startY;
+                        
+                        const newWidth = Math.max(20, startWidth + deltaX);
+                        const newHeight = Math.max(20, startHeight + deltaY);
+                        
+                        layer.size.width = newWidth;
+                        layer.size.height = newHeight;
+                        layerEl.style.width = `${newWidth}px`;
+                        layerEl.style.height = `${newHeight}px`;
+                        
+                        // Update keyframes if any
+                        updateKeyframesForCurrentLayer();
+                    }
+                    
+                    function stopScale() {
+                        document.removeEventListener('mousemove', scale);
+                        document.removeEventListener('mouseup', stopScale);
+                    }
+                    
+                    document.addEventListener('mousemove', scale);
+                    document.addEventListener('mouseup', stopScale);
+                }
+                
+                // Rotate control
+                const rotateControl = layerEl.querySelector('#rotate-control');
+                rotateControl.addEventListener('mousedown', initRotate);
+                
+                function initRotate(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    const rect = layerEl.getBoundingClientRect();
+                    const centerX = rect.left + rect.width / 2;
+                    const centerY = rect.top + rect.height / 2;
+                    
+                    function rotate(e) {
+                        const angle = Math.atan2(e.clientY - centerY, e.clientX - centerX) * 180 / Math.PI + 90;
+                        layer.rotation = angle;
+                        layerEl.style.transform = `rotate(${angle}deg) scale(${layer.scale.x}, ${layer.scale.y})`;
+                        
+                        // Update keyframes if any
+                        updateKeyframesForCurrentLayer();
+                    }
+                    
+                    function stopRotate() {
+                        document.removeEventListener('mousemove', rotate);
+                        document.removeEventListener('mouseup', stopRotate);
+                    }
+                    
+                    document.addEventListener('mousemove', rotate);
+                    document.addEventListener('mouseup', stopRotate);
+                }
+            }
+
+            function makeDraggable(element, layer) {
+                let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+                
+                const header = element.querySelector('div');
+                header.onmousedown = dragMouseDown;
+                
+                function dragMouseDown(e) {
+                    if (layer.locked) return;
+                    
+                    e = e || window.event;
+                    e.preventDefault();
+                    
+                    // Get initial position
+                    pos3 = e.clientX;
+                    pos4 = e.clientY;
+                    
+                    document.onmouseup = closeDragElement;
+                    document.onmousemove = elementDrag;
+                }
+                
+                function elementDrag(e) {
+                    e = e || window.event;
+                    e.preventDefault();
+                    
+                    // Calculate new position
+                    pos1 = pos3 - e.clientX;
+                    pos2 = pos4 - e.clientY;
+                    pos3 = e.clientX;
+                    pos4 = e.clientY;
+                    
+                    // Update element position
+                    const newTop = (element.offsetTop - pos2);
+                    const newLeft = (element.offsetLeft - pos1);
+                    
+                    element.style.top = newTop + "px";
+                    element.style.left = newLeft + "px";
+                    
+                    // Update layer state
+                    layer.position = { x: newLeft, y: newTop };
+                    
+                    // Update keyframes if any
+                    updateKeyframesForCurrentLayer();
+                }
+                
+                function closeDragElement() {
+                    document.onmouseup = null;
+                    document.onmousemove = null;
+                }
+            }
+
+            function makeResizable(element, layer) {
+                let startX, startY, startWidth, startHeight;
+                
+                const resizeHandle = document.createElement('div');
+                resizeHandle.className = 'absolute bottom-0 right-0 w-3 h-3 bg-blue-400 cursor-se-resize';
+                element.appendChild(resizeHandle);
+                
+                resizeHandle.addEventListener('mousedown', initResize);
+                
+                function initResize(e) {
+                    if (layer.locked) return;
+                    
+                    e.preventDefault();
+                    
+                    startX = e.clientX;
+                    startY = e.clientY;
+                    startWidth = parseInt(getComputedStyle(element).width, 10);
+                    startHeight = parseInt(getComputedStyle(element).height, 10);
+                    
+                    document.addEventListener('mousemove', resize);
+                    document.addEventListener('mouseup', stopResize);
+                }
+                
+                function resize(e) {
+                    const newWidth = Math.max(20, startWidth + e.clientX - startX);
+                    const newHeight = Math.max(20, startHeight + e.clientY - startY);
+                    
+                    element.style.width = newWidth + 'px';
+                    element.style.height = newHeight + 'px';
+                    
+                    // Update layer state
+                    layer.size = { width: newWidth, height: newHeight };
+                    
+                    // Update keyframes if any
+                    updateKeyframesForCurrentLayer();
+                }
+                
+                function stopResize() {
+                    document.removeEventListener('mousemove', resize);
+                    document.removeEventListener('mouseup', stopResize);
+                }
+            }
+
+            function updateLayersList() {
+                layersList.innerHTML = '';
+                
+                if (state.layers.length === 0) {
+                    layersList.innerHTML = `
+                        <div class="text-gray-500 text-center py-10 px-4">
+                            <i class="fas fa-layer-group text-3xl mb-2"></i>
+                            <p>No layers yet. Click the + button to add one.</p>
+                        </div>
+                    `;
+                    return;
+                }
+                
+                // Add layers in reverse order (top layer first)
+                [...state.layers].reverse().forEach((layer, index) => {
+                    const displayIndex = state.layers.length - 1 - index;
+                    const isActive = displayIndex === state.activeLayerIndex;
+                    
+                    const layerItem = document.createElement('div');
+                    layerItem.className = `layer-item flex items-center px-3 py-2 cursor-pointer ${isActive ? 'active' : ''}`;
+                    layerItem.innerHTML = `
+                        <div class="flex items-center flex-1">
+                            <button class="layer-visibility mr-2 text-gray-400 hover:text-white">
+                                <i class="fas fa-${layer.visible ? 'eye' : 'eye-slash'}"></i>
+                            </button>
+                            <span class="text-sm truncate flex-1">${layer.name}</span>
+                        </div>
+                        <div class="flex items-center">
+                            <button class="layer-lock mr-2 text-gray-400 hover:text-white">
+                                <i class="fas fa-${layer.locked ? 'lock' : 'unlock'}"></i>
+                            </button>
+                            <i class="fas fa-grip-vertical text-gray-500"></i>
+                        </div>
+                    `;
+                    
+                    // Event listeners
+                    layerItem.addEventListener('click', () => {
+                        setActiveLayer(displayIndex);
+                    });
+                    
+                    const visibilityBtn = layerItem.querySelector('.layer-visibility');
+                    visibilityBtn.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        toggleLayerVisibility(displayIndex);
+                    });
+                    
+                    const lockBtn = layerItem.querySelector('.layer-lock');
+                    lockBtn.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        toggleLayerLock(displayIndex);
+                    });
+                    
+                    layersList.appendChild(layerItem);
+                });
+            }
+
+            function setActiveLayer(index) {
+                state.activeLayerIndex = index;
+                updateLayersList();
+                
+                // Update opacity slider
+                if (index >= 0) {
+                    const layer = state.layers[index];
+                    opacitySlider.value = layer.opacity * 100;
+                    opacityValue.textContent = `${Math.round(layer.opacity * 100)}%`;
+                    
+                    // Update timeline with keyframes for this layer
+                    updateTimelineWithKeyframes(layer);
+                }
+            }
+
+            function toggleLayerVisibility(index) {
+                const layer = state.layers[index];
+                layer.visible = !layer.visible;
+                
+                // Update canvas element
+                const layerEl = document.getElementById(layer.id);
+                if (layerEl) {
+                    layerEl.style.display = layer.visible ? 'block' : 'none';
+                }
+                
+                updateLayersList();
+            }
+
+            function toggleLayerLock(index) {
+                const layer = state.layers[index];
+                layer.locked = !layer.locked;
+                
+                // Update canvas element
+                const layerEl = document.getElementById(layer.id);
+                if (layerEl) {
+                    layerEl.classList.toggle('resizable', !layer.locked);
+                    layerEl.classList.toggle('draggable', !layer.locked);
+                }
+                
+                updateLayersList();
+            }
+
+            function deleteActiveLayer() {
+                if (state.activeLayerIndex === -1) return;
+                
+                // Remove from DOM
+                const layer = state.layers[state.activeLayerIndex];
+                const layerEl = document.getElementById(layer.id);
+                if (layerEl) layerEl.remove();
+                
+                // Remove from state
+                state.layers.splice(state.activeLayerIndex, 1);
+                
+                // Update z-index of remaining layers
+                state.layers.forEach((l, i) => {
+                    l.zIndex = i;
+                    const el = document.getElementById(l.id);
+                    if (el) el.style.zIndex = i;
+                });
+                
+                // Update active layer
+                if (state.layers.length === 0) {
+                    state.activeLayerIndex = -1;
+                } else {
+                    state.activeLayerIndex = Math.min(state.activeLayerIndex, state.layers.length - 1);
+                }
+                
+                updateLayersList();
+            }
+
+            function updateLayerOpacity() {
+                if (state.activeLayerIndex === -1) return;
+                
+                const opacity = opacitySlider.value / 100;
+                opacityValue.textContent = `${opacitySlider.value}%`;
+                
+                const layer = state.layers[state.activeLayerIndex];
+                layer.opacity = opacity;
+                
+                const layerEl = document.getElementById(layer.id);
+                if (layerEl) layerEl.style.opacity = opacity;
+                
+                // Update keyframes if any
+                updateKeyframesForCurrentLayer();
+            }
+
+            function updateKeyframesForCurrentLayer() {
+                if (state.activeLayerIndex === -1) return;
+                
+                const layer = state.layers[state.activeLayerIndex];
+                const currentTime = parseFloat(timelineScrubber.value) / 100 * state.duration;
+                
+                // Check if there's a keyframe at the current time
+                const existingKeyframeIndex = layer.keyframes.findIndex(kf => Math.abs(kf.time - currentTime) < 0.1);
+                
+                if (existingKeyframeIndex !== -1) {
+                    // Update existing keyframe
+                    layer.keyframes[existingKeyframeIndex] = createKeyframeFromLayer(layer, currentTime);
+                }
+                
+                // Update timeline display
+                updateTimelineWithKeyframes(layer);
+            }
+
+            function createKeyframeFromLayer(layer, time) {
+                return {
+                    time: time,
+                    properties: {
+                        position: { ...layer.position },
+                        size: { ...layer.size },
+                        rotation: layer.rotation,
+                        scale: { ...layer.scale },
+                        opacity: layer.opacity
+                    },
+                    easing: 'linear'
+                };
+            }
+
+            function updateTimelineWithKeyframes(layer) {
+                timelineTrack.innerHTML = '';
+                
+                layer.keyframes.forEach(keyframe => {
+                    const position = (keyframe.time / state.duration) * 100;
+                    const keyframeEl = document.createElement('div');
+                    keyframeEl.className = 'keyframe';
+                    keyframeEl.style.left = `${position}%`;
+                    keyframeEl.dataset.time = keyframe.time;
+                    
+                    // Check if this is the active keyframe
+                    const currentTime = parseFloat(timelineScrubber.value) / 100 * state.duration;
+                    if (Math.abs(keyframe.time - currentTime) < 0.1) {
+                        keyframeEl.classList.add('active');
+                    }
+                    
+                    keyframeEl.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        selectKeyframe(keyframe, keyframeEl);
+                    });
+                    
+                    timelineTrack.appendChild(keyframeEl);
+                });
+            }
+
+            function addKeyframeAtCurrentTime() {
+                if (state.activeLayerIndex === -1) return;
+                
+                const currentTime = parseFloat(timelineScrubber.value) / 100 * state.duration;
+                const layer = state.layers[state.activeLayerIndex];
+                
+                // Check if keyframe already exists at this time
+                const existingIndex = layer.keyframes.findIndex(kf => Math.abs(kf.time - currentTime) < 0.1);
+                
+                if (existingIndex !== -1) {
+                    // Update existing keyframe
+                    layer.keyframes[existingIndex] = createKeyframeFromLayer(layer, currentTime);
+                } else {
+                    // Add new keyframe
+                    layer.keyframes.push(createKeyframeFromLayer(layer, currentTime));
+                    
+                    // Sort keyframes by time
+                    layer.keyframes.sort((a, b) => a.time - b.time);
+                }
+                
+                // Update timeline display
+                updateTimelineWithKeyframes(layer);
+            }
+
+            function selectKeyframe(keyframe, keyframeEl) {
+                // Deselect previous keyframe
+                document.querySelectorAll('.keyframe').forEach(kf => kf.classList.remove('active'));
+                
+                // Select this keyframe
+                keyframeEl.classList.add('active');
+                state.selectedKeyframe = keyframe;
+                
+                // Show keyframe properties panel
+                keyframeProperties.style.display = 'block';
+                keyframeProperties.style.left = `${keyframeEl.offsetLeft}px`;
+                keyframeProperties.style.top = `${keyframeEl.offsetTop - 50}px`;
+                
+                // Set values
+                keyframeTimeInput.value = keyframe.time.toFixed(1);
+                keyframeEasingSelect.value = keyframe.easing;
+            }
+
+            function updateSelectedKeyframe() {
+                if (!state.selectedKeyframe || state.activeLayerIndex === -1) return;
+                
+                const layer = state.layers[state.activeLayerIndex];
+                const keyframeIndex = layer.keyframes.findIndex(kf => kf === state.selectedKeyframe);
+                
+                if (keyframeIndex !== -1) {
+                    // Update keyframe properties
+                    layer.keyframes[keyframeIndex].time = parseFloat(keyframeTimeInput.value);
+                    layer.keyframes[keyframeIndex].easing = keyframeEasingSelect.value;
+                    
+                    // Sort keyframes by time
+                    layer.keyframes.sort((a, b) => a.time - b.time);
+                    
+                    // Update timeline display
+                    updateTimelineWithKeyframes(layer);
+                    
+                    // Hide properties panel
+                    keyframeProperties.style.display = 'none';
+                }
+            }
+
+            function deleteSelectedKeyframe() {
+                if (!state.selectedKeyframe || state.activeLayerIndex === -1) return;
+                
+                const layer = state.layers[state.activeLayerIndex];
+                const keyframeIndex = layer.keyframes.findIndex(kf => kf === state.selectedKeyframe);
+                
+                if (keyframeIndex !== -1) {
+                    layer.keyframes.splice(keyframeIndex, 1);
+                    
+                    // Update timeline display
+                    updateTimelineWithKeyframes(layer);
+                    
+                    // Hide properties panel
+                    keyframeProperties.style.display = 'none';
+                }
+            }
+
+            function togglePlayback() {
+                state.isPlaying = !state.isPlaying;
+                
+                const playBtn = document.getElementById('play-btn');
+                playBtn.innerHTML = `<i class="fas fa-${state.isPlaying ? 'pause' : 'play'}"></i>`;
+                
+                if (state.isPlaying) {
+                    // Start animation
+                    animateTimeline();
+                } else {
+                    // Pause animation
+                    if (state.animationInterval) {
+                        clearInterval(state.animationInterval);
+                        state.animationInterval = null;
+                    }
+                }
+            }
+
+            function stopPlayback() {
+                state.isPlaying = false;
+                document.getElementById('play-btn').innerHTML = '<i class="fas fa-play"></i>';
+                
+                if (state.animationInterval) {
+                    clearInterval(state.animationInterval);
+                    state.animationInterval = null;
+                }
+                
+                // Reset to start
+                timelineScrubber.value = 0;
+                updateCurrentTime();
+            }
+
+            function animateTimeline() {
+                const startTime = Date.now();
+                const durationMs = state.duration * 1000;
+                
+                state.animationInterval = setInterval(() => {
+                    const elapsed = Date.now() - startTime;
+                    const progress = (elapsed % durationMs) / durationMs;
+                    
+                    timelineScrubber.value = progress * 100;
+                    updateCurrentTime();
+                    
+                    // Apply animations to layers
+                    applyAnimationsAtCurrentTime();
+                }, 1000 / state.frameRate);
+            }
+
+            function updateCurrentTime() {
+                const time = parseFloat(timelineScrubber.value) / 100 * state.duration;
+                state.currentTime = time;
+                
+                // Update display
+                const minutes = Math.floor(time / 60);
+                const seconds = Math.floor(time % 60);
+                const frames = Math.floor((time % 1) * state.frameRate);
+                currentTimeDisplay.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}.${frames.toString().padStart(2, '0')}`;
+                
+                // Apply animations to layers
+                applyAnimationsAtCurrentTime();
+            }
+
+            function applyAnimationsAtCurrentTime() {
+                state.layers.forEach(layer => {
+                    if (layer.keyframes.length === 0) return;
+                    
+                    // Find the keyframes before and after current time
+                    let prevKeyframe = null;
+                    let nextKeyframe = null;
+                    
+                    for (let i = 0; i < layer.keyframes.length; i++) {
+                        if (layer.keyframes[i].time <= state.currentTime) {
+                            prevKeyframe = layer.keyframes[i];
+                        } else {
+                            nextKeyframe = layer.keyframes[i];
+                            break;
+                        }
+                    }
+                    
+                    const layerEl = document.getElementById(layer.id);
+                    if (!layerEl) return;
+                    
+                    if (!prevKeyframe && !nextKeyframe) {
+                        // No keyframes
+                        return;
+                    } else if (!nextKeyframe) {
+                        // Only previous keyframe (hold)
+                        applyKeyframeToLayer(layer, prevKeyframe);
+                    } else if (!prevKeyframe) {
+                        // Only next keyframe (jump to start)
+                        applyKeyframeToLayer(layer, nextKeyframe);
+                    } else {
+                        // Interpolate between keyframes
+                        interpolateBetweenKeyframes(layer, prevKeyframe, nextKeyframe);
+                    }
+                });
+            }
+
+            function applyKeyframeToLayer(layer, keyframe) {
+                const layerEl = document.getElementById(layer.id);
+                if (!layerEl) return;
+                
+                layerEl.style.left = `${keyframe.properties.position.x}px`;
+                layerEl.style.top = `${keyframe.properties.position.y}px`;
+                layerEl.style.width = `${keyframe.properties.size.width}px`;
+                layerEl.style.height = `${keyframe.properties.size.height}px`;
+                layerEl.style.transform = `rotate(${keyframe.properties.rotation}deg) scale(${keyframe.properties.scale.x}, ${keyframe.properties.scale.y})`;
+                layerEl.style.opacity = keyframe.properties.opacity;
+                
+                // Update layer state
+                layer.position = { ...keyframe.properties.position };
+                layer.size = { ...keyframe.properties.size };
+                layer.rotation = keyframe.properties.rotation;
+                layer.scale = { ...keyframe.properties.scale };
+                layer.opacity = keyframe.properties.opacity;
+            }
+
+            function interpolateBetweenKeyframes(layer, prevKeyframe, nextKeyframe) {
+                const layerEl = document.getElementById(layer.id);
+                if (!layerEl) return;
+                
+                const timeRange = nextKeyframe.time - prevKeyframe.time;
+                const timePosition = state.currentTime - prevKeyframe.time;
+                const progress = timePosition / timeRange;
+                
+                // Linear interpolation for now (could add easing later)
+                const interpolate = (start, end, p) => start + (end - start) * p;
+                
+                // Position
+                const x = interpolate(
+                    prevKeyframe.properties.position.x,
+                    nextKeyframe.properties.position.x,
+                    progress
+                );
+                const y = interpolate(
+                    prevKeyframe.properties.position.y,
+                    nextKeyframe.properties.position.y,
+                    progress
+                );
+                
+                // Size
+                const width = interpolate(
+                    prevKeyframe.properties.size.width,
+                    nextKeyframe.properties.size.width,
+                    progress
+                );
+                const height = interpolate(
+                    prevKeyframe.properties.size.height,
+                    nextKeyframe.properties.size.height,
+                    progress
+                );
+                
+                // Rotation
+                const rotation = interpolate(
+                    prevKeyframe.properties.rotation,
+                    nextKeyframe.properties.rotation,
+                    progress
+                );
+                
+                // Scale
+                const scaleX = interpolate(
+                    prevKeyframe.properties.scale.x,
+                    nextKeyframe.properties.scale.x,
+                    progress
+                );
+                const scaleY = interpolate(
+                    prevKeyframe.properties.scale.y,
+                    nextKeyframe.properties.scale.y,
+                    progress
+                );
+                
+                // Opacity
+                const opacity = interpolate(
+                    prevKeyframe.properties.opacity,
+                    nextKeyframe.properties.opacity,
+                    progress
+                );
+                
+                // Apply to element
+                layerEl.style.left = `${x}px`;
+                layerEl.style.top = `${y}px`;
+                layerEl.style.width = `${width}px`;
+                layerEl.style.height = `${height}px`;
+                layerEl.style.transform = `rotate(${rotation}deg) scale(${scaleX}, ${scaleY})`;
+                layerEl.style.opacity = opacity;
+                
+                // Update layer state
+                layer.position = { x, y };
+                layer.size = { width, height };
+                layer.rotation = rotation;
+                layer.scale = { x: scaleX, y: scaleY };
+                layer.opacity = opacity;
+            }
+
+            function exportProject() {
+                if (state.layers.length === 0) {
+                    alert('No layers to export');
+                    return;
+                }
+                
+                // Prepare data for export
+                const exportData = {
+                    version: '1.0',
+                    layers: state.layers,
+                    duration: state.duration,
+                    frameRate: state.frameRate,
+                    canvasSize: state.canvasSize
+                };
+                
+                // Create JSON file
+                const dataStr = JSON.stringify(exportData, null, 2);
+                const dataUri = 'data:application/json;charset=utf-8,' + encodeURIComponent(dataStr);
+                
+                // Create download link
+                exportLink.href = dataUri;
+                exportLink.download = 'facial-animation.json';
+                exportLink.click();
+            }
+
+            function importProject(e) {
+                const file = e.target.files[0];
+                if (!file) return;
+                
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    try {
+                        const data = JSON.parse(e.target.result);
+                        
+                        // Clear current project
+                        state.layers = [];
+                        state.activeLayerIndex = -1;
+                        canvasContainer.querySelectorAll('.layer').forEach(el => el.remove());
+                        
+                        // Import settings
+                        state.duration = data.duration || 10;
+                        state.frameRate = data.frameRate || 24;
+                        state.canvasSize = data.canvasSize || { width: 500, height: 500 };
+                        
+                        // Import layers
+                        data.layers.forEach(layerData => {
+                            state.layers.push(layerData);
+                            createLayerDOM(layerData);
+                        });
+                        
+                        // Update UI
+                        if (state.layers.length > 0) {
+                            state.activeLayerIndex = 0;
+                            updateLayersList();
+                            updateTimelineWithKeyframes(state.layers[0]);
+                        }
+                        
+                        // Reset timeline
+                        timelineScrubber.value = 0;
+                        updateCurrentTime();
+                        
+                    } catch (error) {
+                        alert('Error importing project: ' + error.message);
+                    }
+                };
+                reader.readAsText(file);
+            }
+
+            function handleKeyboardShortcuts(e) {
+                // Don't handle shortcuts if typing in an input
+                if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+                
+                // Tool shortcuts
+                if (e.key === 'v') setActiveTool('select');
+                if (e.key === 'm') setActiveTool('move');
+                if (e.key === 'b') setActiveTool('draw');
+                if (e.key === 't') setActiveTool('text');
+                if (e.key === 'u') setActiveTool('shape');
+                
+                // Layer shortcuts
+                if (e.key === 'Delete') deleteActiveLayer();
+                if (e.ctrlKey && e.shiftKey && e.key === 'N') showAddLayerModal();
+                
+                // Keyframe shortcuts
+                if (e.key === 'k') addKeyframeAtCurrentTime();
+                
+                // Playback shortcuts
+                if (e.key === ' ') togglePlayback();
+                if (e.key === 'Home') {
+                    timelineScrubber.value = 0;
+                    updateCurrentTime();
+                }
+                if (e.key === 'End') {
+                    timelineScrubber.value = 100;
+                    updateCurrentTime();
+                }
+                
+                // Arrow keys for scrubbing
+                if (e.key === 'ArrowLeft') {
+                    timelineScrubber.value = Math.max(0, parseInt(timelineScrubber.value) - 1);
+                    updateCurrentTime();
+                }
+                if (e.key === 'ArrowRight') {
+                    timelineScrubber.value = Math.min(100, parseInt(timelineScrubber.value) + 1);
+                    updateCurrentTime();
+                }
+            }
+        });
+    </script>
+</body>
+</html>
